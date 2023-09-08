@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-accordion-group [multiple]="true"  *ngFor="let ramo of ramos">
+    <ion-accordion >
+      <ion-item slot="header" color="light">
+        <ion-label>{{ramo.name}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">First Content</div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>

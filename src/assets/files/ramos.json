@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "name": "Diseño y gestión de requisitos",
+            "cod": "12345"
+        },
+        {
+            "name": "Programación de algoritmos",
+            "cod": "12345"
+        },
+        {
+            "name": "Modelamiento base de datos",
+            "cod": "12345"
+        },
+        {
+            "name": "Nivelación matemática",
+            "cod": "12345"
+        },
+        {
+            "name": "Habilidaddes básicas de comunicación",
+            "cod": "12345"
+        },
+        {
+            "name": "Inglés básico I",
+            "cod": "12345"
+        },
+        {
+            "name": "Proceso de portafolio I",
+            "cod": "12345"
+        }
+    ]
+}
