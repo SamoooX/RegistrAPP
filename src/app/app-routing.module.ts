@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'registro-academico',
+    loadChildren: () => import('./registro-academico/registro-academico.module').then( m => m.RegistroAcademicoPageModule)
+  },
 ];
 
 @NgModule({
