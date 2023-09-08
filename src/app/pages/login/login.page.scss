@@ -1,0 +1,25 @@
+ion-content {
+    --backgrond: #fefefe;
+
+    #header{
+        height: 33%;
+        background: #070a43;
+        border-radius: 0 0 28px 20px;
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        padding: 20px;
+
+        #app-bar{
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            ion-icon {
+                font-size: 24px;
+                margin-left: -5px;
+            }
+        }
+    }
+}
