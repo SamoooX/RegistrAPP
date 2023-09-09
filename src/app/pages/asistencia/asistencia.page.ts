@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class AsistenciaPage implements OnInit {
 
   ramos: any =[];
+  asistencia: any=[];
 
   constructor(private http: HttpClient) { }
   
@@ -19,11 +20,25 @@ export class AsistenciaPage implements OnInit {
       console.log("Res", res)
       this.ramos = res;
     });
+    this.getAsistencia().subscribe(res=>{
+      console.log("Res", res)
+      this.asistencia = res;
+    });
   }
   
   getRamos(){
     return this.http
     .get("assets/files/ramos.json")
+    .pipe(
+      map((res:any) => {
+        return res.data;
+      })
+    )
+  }
+
+  getAsistencia(){
+    return this.http
+    .get("assets/files/asistencia.json")
     .pipe(
       map((res:any) => {
         return res.data;

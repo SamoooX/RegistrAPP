@@ -4,13 +4,43 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-accordion-group [multiple]="true"  *ngFor="let ramo of ramos">
-    <ion-accordion >
-      <ion-item slot="header" color="light">
-        <ion-label>{{ramo.name}}</ion-label>
+<ion-content>
+  <ion-item class="titulo" color="mycolor" lines="none">
+    <ion-label>INGENIERIA EN INFORMATICA</ion-label>
+  </ion-item>
+  <ion-accordion-group *ngFor="let ramo of ramos" back>
+    <ion-accordion>
+      <ion-item slot="header" lines="full" class="ramos" color="mycolor">
+        <ion-icon slot="start" name="ellipsis-vertical-outline" class="ion-no-padding" class="ion-no-margin"></ion-icon>
+        <ion-label>
+          <h1>{{ramo.name}}</h1>
+          <h2>{{ramo.cod}}</h2>
+        </ion-label>
       </ion-item>
-      <div class="ion-padding" slot="content">First Content</div>
+      <div class="ion-padding" slot="content" color="mycolor">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div class="fec">
+                <ion-label class="ion-no-margin">FECHA</ion-label>
+              </div>
+              <ion-list class="fechas" *ngFor="let asist of asistencia" back style="color: {{asist.color}};">
+                {{asist.date}}
+              </ion-list>
+            </ion-col>
+            <ion-col>
+              <div class="asis">
+                <ion-label>Asistencia</ion-label>
+              </div>
+              <div class="asistencias" *ngFor="let asist of asistencia" back>
+                <ion-list style="color: {{asist.color}};">
+                  {{asist.type}}
+                </ion-list>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
     </ion-accordion>
   </ion-accordion-group>
 </ion-content>
