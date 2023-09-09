@@ -1,8 +1,4 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>asistencia</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header titulo="Asistencia"></app-header>
 
 <ion-content>
   <ion-item class="titulo" color="mycolor" lines="none">
@@ -18,13 +14,13 @@
         </ion-label>
       </ion-item>
       <div class="ion-padding" slot="content" color="mycolor">
-        <ion-grid>
-          <ion-row>
-            <ion-col>
+        <ion-grid >
+          <ion-row class="cuadro">
+            <ion-col sizeLg="4" sizeMd="4" sizeXs="8">
               <div class="fec">
                 <ion-label class="ion-no-margin">FECHA</ion-label>
               </div>
-              <ion-list class="fechas" *ngFor="let asist of asistencia" back style="color: {{asist.color}};">
+              <ion-list class="fechas pad" *ngFor="let asist of asistencia" back style="color: {{asist.color}};">
                 {{asist.date}}
               </ion-list>
             </ion-col>
@@ -33,7 +29,7 @@
                 <ion-label>Asistencia</ion-label>
               </div>
               <div class="asistencias" *ngFor="let asist of asistencia" back>
-                <ion-list style="color: {{asist.color}};">
+                <ion-list class="pad" style="color: {{asist.color}};">
                   {{asist.type}}
                 </ion-list>
               </div>
