@@ -19,6 +19,20 @@ const routes: Routes = [
     path: 'tab',
     loadChildren: () => import('./pages/tab/tab.module').then( m => m.TabPageModule)
   },
+  {
+    path: 'presente',
+    loadChildren: () => import('./pages/presente/presente.module').then( m => m.PresentePageModule)
+  },
+  {
+    path: 'qr',
+    loadChildren: () => import('./pages/qr/qr.module').then( m => m.QrPageModule)
+  },  {
+    path: 'gqr',
+    loadChildren: () => import('./pages/gqr/gqr.module').then( m => m.GqrPageModule)
+  },
+
+
+
 
 ];
 
