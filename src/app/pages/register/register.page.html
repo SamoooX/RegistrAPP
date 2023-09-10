@@ -1,7 +1,7 @@
-<ion-content class="ion-padding">
+<ion-content>
   <div id="header">
     <div id="app-var">
-      <ion-icon name="arrow-back" routerLink="/home" color="light"></ion-icon>
+      <ion-icon name="arrow-back" routerLink="/home"></ion-icon>
       <div id="logo">
         <img src="assets/icon/logo_duoc_uc.svg" alt="">
       </div>
@@ -10,8 +10,13 @@
 
   <div class="wrapper">
     <ion-card>
-      <h3>Iniciar Sesión</h3>
+      <h3>Registro</h3>
     <form #miFormulario="ngForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-icon  name="person"></ion-icon>
+        <ion-input labelPlacement="floating" label="Nombre completo" required type="email" aria-label="Email" name="email"
+          [(ngModel)]="usuario.username"></ion-input>
+      </ion-item>
       <ion-item>
         <ion-icon  name="mail"></ion-icon>
         <ion-input labelPlacement="floating" label="E-mail" required type="email" aria-label="Email" name="email"
@@ -19,24 +24,20 @@
       </ion-item>
       <ion-item>
         <ion-icon name="lock-closed"></ion-icon>
-        <ion-input labelPlacement="floating" label="Password" required type="password" aria-label="password"
+        <ion-input labelPlacement="floating" label="Contraseña" required type="password" aria-label="password"
+          name="password" [(ngModel)]="usuario.password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="lock-closed"></ion-icon>
+        <ion-input labelPlacement="floating" label="Repita su contraseña" required type="password" aria-label="password"
           name="password" [(ngModel)]="usuario.password"></ion-input>
       </ion-item>
       <ion-button expand="full" color="warning" type="submit" class="ion-padding" [disabled]="miFormulario.invalid">
-        Login
+        Registrarse
       </ion-button>
     </form>
     </ion-card>
 
-    <div class="line-text ion-padding">
-      <span class="lines"></span>
-      <span class="text"><a href="/Recuperar">¿Olvidaste tu contraseña?</a></span>
-    </div> 
-
-    <div class="line-text ion-padding">
-      <span class="lines"></span>
-      <span class="text">¿Aún no tienes cuenta? </span><span class="text"><a href="/register">Registrate</a></span>
-    </div> 
   </div>
 
 
