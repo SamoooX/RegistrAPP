@@ -4,19 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AsistenciaPageRoutingModule } from './asistencia-routing.module';
-
-import { AsistenciaPage } from './asistencia.page';
+import { GqrPageRoutingModule } from './gqr-routing.module';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { GqrPage } from './gqr.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AsistenciaPageRoutingModule,
+    GqrPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [AsistenciaPage]
+  declarations: [GqrPage]
 })
-export class AsistenciaPageModule {}
+export class GqrPageModule {}

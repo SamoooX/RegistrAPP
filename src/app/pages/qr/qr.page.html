@@ -1,0 +1,35 @@
+<app-header titulo="Generacion de QR"></app-header>
+
+<ion-content>
+  <ion-item class="titulo" color="mycolor" lines="none">
+    <ion-label>TUS ASIGNATURAS</ion-label>
+  </ion-item>
+  <ion-accordion-group *ngFor="let ramo of ramos" back>
+    <ion-accordion>
+      <ion-item slot="header" lines="full" class="ramos" color="mycolor">
+        <ion-icon slot="start" name="ellipsis-vertical-outline" class="ion-no-padding" class="ion-no-margin"></ion-icon>
+        <ion-label>
+          <h1>{{ramo.name}}</h1>
+          <h2>{{ramo.cod}}</h2>
+        </ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content" color="mycolor">
+        <ion-accordion-group *ngFor="let ramo of ramos" back>
+          <ion-accordion>
+            <ion-item slot="header" lines="full" class="ramos" color="mycolor">
+              <ion-icon slot="start" name="book-outline"></ion-icon>
+              <ion-label>
+                <h1>{{ramo.section}}</h1>
+              </ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content" color="mycolor">
+              <ion-button expand="block" fill="clear" shape="round" (click)="onClick('gqr')">
+                Generar QR
+              </ion-button>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>
