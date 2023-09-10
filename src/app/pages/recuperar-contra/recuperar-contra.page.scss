@@ -1,0 +1,51 @@
+ion-content {
+    --backgrond: #e0dfe6;
+
+    #header{
+        height: 33%;
+        background: #071b43;
+        border-radius: 0 0 28px 20px;
+        display: flex;
+        flex-direction: column;
+        color: #fff;    
+        padding: 20px;
+
+        #app-bar{
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            ion-icon {
+                font-size: 24px;
+                margin-left: -5px;
+            }
+            #logo{
+                width: 30px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;    
+                align-self: center;
+
+                img{
+                    width: 70%;
+                }
+            }
+        }
+        
+    }
+
+    .wrapper{
+        position: absolute;
+        top: 26%;
+        left: 4%;
+        right: 4%;
+
+        h3 {
+            font-size: 19px;
+            margin-bottom: 1.4;
+            text-align: center;
+        }
+    }
+}
