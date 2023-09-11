@@ -12,26 +12,38 @@ export class RecuperarContraPage implements OnInit {
   constructor(private router:Router, private alertController:AlertController) { }
 
     usuario={
-      password:"",
-      password2:"",
+      email:"",
     }
   ngOnInit() {
   }
   onSubmit()
   {
-    if (this.usuario.password=="123" && this.usuario.password2=="123"){
-      this.router.navigate(['/login'])
+    if (this.usuario.email== "mat@duoc.cl"){
+      this.aviso()
     }
     else{
       this.presentAlert()
     }
   }
 
+  async aviso() {
+    const alert = await this.alertController.create({
+      header: 'Informe',
+      subHeader: 'Información',
+      message: "Se le ha enviado un correo para el cambio de contraseña",
+      buttons: ['OK'],
+      backdropDismiss:false,
+      
+    });
+    await alert.present();
+  }
+
+
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Alerta',
       subHeader: 'Información',
-      message: "Las contraseñas no coinciden",
+      message: "Datos incorrectos",
       buttons: ['OK'],
       backdropDismiss:false,
       

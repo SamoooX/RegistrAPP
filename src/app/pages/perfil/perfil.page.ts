@@ -26,4 +26,8 @@ export class PerfilPage implements OnInit {
   editarFoto(){
 
   }
+  
+  cerrarSesion(){
+    this.router.navigate(['/login'])
+  }
 }
