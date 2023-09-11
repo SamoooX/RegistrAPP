@@ -8,8 +8,10 @@
         Cambiar foto de perfil
       </ion-button>
     </div>
-    <ion-label>Nombre de Usuario:</ion-label>
-    <ion-text>{{ nombreUsuario }}</ion-text>
+    <div class="nombre">
+      <ion-label>Nombre de Usuario: </ion-label>
+      <ion-text>{{ nombreUsuario }}</ion-text>
+    </div>
   </div>
 
   <ion-card>
@@ -25,7 +27,11 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-button expand="full" color="warning" fill="solid" (click)="editarPerfil()">
+  <ion-button expand="full" color="warning" fill="solid" (click)="editarPerfil()" class="ion-padding">
     Editar datos
+  </ion-button>
+
+  <ion-button expand="full" color="danger" fill="solid" (click)="cerrarSesion()" class="ion-padding">
+    Cerrar sesión
   </ion-button>
 </ion-content>

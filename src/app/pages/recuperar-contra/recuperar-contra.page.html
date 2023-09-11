@@ -13,14 +13,9 @@
       <h3>Restablecer contraseña</h3>
     <form #miFormulario="ngForm" (ngSubmit)="onSubmit()">
       <ion-item>
-        <ion-icon  name="lock-closed"></ion-icon>
-        <ion-input labelPlacement="floating" label="Contraseña" required type="email" aria-label="Email" name="email"
-          [(ngModel)]="usuario.password"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="lock-closed"></ion-icon>
-        <ion-input labelPlacement="floating" label="Repita su contraseña" required type="password" aria-label="password"
-          name="password" [(ngModel)]="usuario.password2"></ion-input>
+        <ion-icon  name="mail" class="ion-padding"></ion-icon>
+        <ion-input labelPlacement="floating" label="Email" required type="email" aria-label="Email" name="email"
+          [(ngModel)]="usuario.email"></ion-input>
       </ion-item>
       <ion-button expand="full" color="warning" type="submit" class="ion-padding" [disabled]="miFormulario.invalid">
         Confirmar
