@@ -35,10 +35,11 @@ export class RegisterPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Alerta',
       subHeader: 'Información',
-      message: "Usuario y/o password incorrectos",
+      message: "Valores no validos",
       buttons: ['OK'],
       backdropDismiss:false,
       
     });
+    await alert.present();
   }
 }

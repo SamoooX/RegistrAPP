@@ -20,10 +20,9 @@ export class RecuperarContraPage implements OnInit {
   onSubmit()
   {
     if (this.usuario.password=="123" && this.usuario.password2=="123"){
-      this.router.navigate(['/home'])
+      this.router.navigate(['/login'])
     }
     else{
-      
       this.presentAlert()
     }
   }
@@ -37,5 +36,6 @@ export class RecuperarContraPage implements OnInit {
       backdropDismiss:false,
       
     });
+    await alert.present();
   }
 }
