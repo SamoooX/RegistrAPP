@@ -24,6 +24,10 @@ const routes: Routes = [
         path: 'qr',
         loadChildren: () => import('./../../pages/qr/qr.module').then( m => m.QrPageModule)
       },
+      {
+        path: 'perfil',
+        loadChildren: () => import('./../../pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+      },
     ]
 
   }
