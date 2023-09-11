@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'gqr',
     loadChildren: () => import('./pages/gqr/gqr.module').then( m => m.GqrPageModule)
+  },  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   },
+
 
 
 
