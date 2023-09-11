@@ -20,14 +20,16 @@
       <ion-item *ngFor="let ramo of ramos" lines="none">
         <ion-grid>
           <ion-row>
-            <ion-col size="6" >
-              <ion-label>
+            <ion-col size="9" >
+              <div>
                 <h3>{{ramo.cod}}</h3>
                 <h2>{{ramo.name}}</h2>
-              </ion-label>
+              </div>
             </ion-col>
-            <ion-col size="6">
-              <ion-label class="ion-text-end">100%</ion-label>
+            <ion-col size="3">
+              <div class="ion-text-end porcentaje">
+                <p>100%</p> 
+              </div>
             </ion-col>
           </ion-row>
           <ion-row>
