@@ -13,16 +13,17 @@ export class RegisterPage implements OnInit {
 
   usuario={
     username:"",
+    email:"",
     password:"",
-    
+    password2:"",
   }
 
   ngOnInit() {
   }
   onSubmit()
   {
-    if (this.usuario.username=="mat@duoc.cl" && this.usuario.password=="123"){
-      this.router.navigate(['/home'])
+    if (this.usuario.username=="Matias Aninir" && this.usuario.email=="mat@duoc.cl" && this.usuario.password=="123"  && this.usuario.password=="123"){
+      this.router.navigate(['/login'])
     }
     else{
       
