@@ -1,14 +1,31 @@
 <app-header titulo="Perfil"></app-header>
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>perfil</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">perfil</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="profile-header">
+    <div class="avatar">
+      <img src="assets/img/foto_perfil.jpg" alt="Foto de perfil">
+      <ion-button (click)="editarFoto()" expand="block" fill="solid" shape="round" color="warning">
+        Cambiar foto de perfil
+      </ion-button>
+    </div>
+    <ion-label>Nombre de Usuario:</ion-label>
+    <ion-text>{{ nombreUsuario }}</ion-text>
+  </div>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-label>Correo Electrónico:</ion-label>
+      <ion-text>{{ correoElectronico }}</ion-text>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-label>Carrera:</ion-label>
+      <ion-text>Ingenieria en cazuelas</ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="full" color="warning" fill="solid" (click)="editarPerfil()">
+    Editar datos
+  </ion-button>
 </ion-content>

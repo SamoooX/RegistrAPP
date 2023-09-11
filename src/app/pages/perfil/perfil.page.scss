@@ -1,0 +1,33 @@
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    .avatar img {
+        width: 200px;
+        height: auto;
+        border-radius: 50px;
+      }
+  }
+  
+  
+  
+  .foto-icon {
+    font-size: 30px;
+    margin-top: -15px; /* Espacio entre la imagen de perfil y el icono */
+  }
+  
+  ion-label {
+    margin-top: 10%; /* Espacio entre la imagen de perfil y el nombre de usuario */
+  }
+  
+  ion-text {
+    font-weight: bold;
+    font-size: 18px; /* Tamaño de fuente para el nombre de usuario */
+    text-align: center; /* Alineación del nombre de usuario */
+  }
+  
+  ion-card {
+    margin-top: 20px; /* Espacio entre los datos de perfil y el botón de editar */
+  }
+  
