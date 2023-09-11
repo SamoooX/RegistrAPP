@@ -1,7 +1,7 @@
 <ion-content class="ion-padding">
   <div id="header">
     <div id="app-var">
-      <ion-icon name="arrow-back" routerLink="/perfil"></ion-icon>
+      <ion-back-button defaultHref="tab/home"></ion-back-button>
       <div id="logo">
         <img src="assets/icon/logo_duoc_uc.svg" alt="">
       </div>
@@ -11,28 +11,28 @@
   <div class="wrapper ion-padding">
     <ion-card>
       <h3>Editar Datos</h3>
-    <form #miFormulario="ngForm" (ngSubmit)="onSubmit()">
-      <ion-item>
-        <ion-icon name="person"></ion-icon>
-        <ion-text>{{ nombreUsuario }}</ion-text>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="mail"></ion-icon>
-        <ion-text>{{ correoElectronico }}</ion-text>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="book"></ion-icon>
-        <ion-text>Carrera: Ingenieria en cazuelas</ion-text>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="lock-closed"></ion-icon>
-        <ion-input labelPlacement="floating" label="Password" required type="password" aria-label="password"
-          name="password" [(ngModel)]="usuario.password"></ion-input>
-      </ion-item>
-      <ion-button expand="full" color="warning" type="submit" class="ion-padding" [disabled]="miFormulario.invalid">
-        Guardar cambios
-      </ion-button>
-    </form>
+      <form #miFormulario="ngForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-icon name="person"></ion-icon>
+          <ion-text>{{ nombreUsuario }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="mail"></ion-icon>
+          <ion-text>{{ correoElectronico }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="book"></ion-icon>
+          <ion-text>Carrera: Ingenieria en cazuelas</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="lock-closed"></ion-icon>
+          <ion-input labelPlacement="floating" label="Password" required type="password" aria-label="password"
+            name="password" [(ngModel)]="usuario.password"></ion-input>
+        </ion-item>
+        <ion-button expand="full" color="warning" type="submit" class="ion-padding" [disabled]="miFormulario.invalid">
+          Guardar cambios
+        </ion-button>
+      </form>
     </ion-card>
 
   </div>

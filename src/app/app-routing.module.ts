@@ -12,10 +12,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'asistencia',
-    loadChildren: () => import('./pages/asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
-  },
-  {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
@@ -28,28 +24,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/recuperar-contra/recuperar-contra.module').then( m => m.RecuperarContraPageModule)
   },
   {
-    path: 'asistencia',
-    loadChildren: () => import('./pages/asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
-  },
-  {
     path: 'tab',
     loadChildren: () => import('./pages/tab/tab.module').then( m => m.TabPageModule)
   },
   {
-    path: 'presente',
-    loadChildren: () => import('./pages/presente/presente.module').then( m => m.PresentePageModule)
-  },
-  {
-    path: 'qr',
-    loadChildren: () => import('./pages/qr/qr.module').then( m => m.QrPageModule)
-  },
-  {
     path: 'gqr',
     loadChildren: () => import('./pages/gqr/gqr.module').then( m => m.GqrPageModule)
-  },
-  {
-    path: 'perfil',
-    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
   {
     path: 'editar-datos',

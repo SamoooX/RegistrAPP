@@ -18,6 +18,6 @@ export class EditarDatosPage implements OnInit {
   ngOnInit() {
   }
   onSubmit(){
-    this.router.navigate(['/perfil'])
+    this.router.navigate(['tab/perfil'])
   }
 }
