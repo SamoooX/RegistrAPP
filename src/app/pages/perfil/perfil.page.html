@@ -21,7 +21,7 @@
     </ion-card-content>
   </ion-card>
   <ion-card>
-    <ion-card-content>
+    <ion-card-content *ngIf="!permission">
       <ion-label>Carrera:</ion-label>
       <ion-text>Ingenieria en cazuelas</ion-text>
     </ion-card-content>

@@ -5,15 +5,15 @@
         <ion-icon name="home-outline"></ion-icon>
         Home
       </ion-tab-button>
-      <ion-tab-button tab="qr">
+      <ion-tab-button tab="qr" *ngIf="permission">
         <ion-icon name="qr-code-outline"></ion-icon>
         QR
       </ion-tab-button>
-      <ion-tab-button tab="presente">
+      <ion-tab-button tab="presente" *ngIf="!permission">
         <ion-icon name="camera-outline"></ion-icon>
         Presente
       </ion-tab-button>
-      <ion-tab-button tab="asistencia">
+      <ion-tab-button tab="asistencia" *ngIf="!permission">
         <ion-icon name="calendar-outline"></ion-icon>
         Asistencia
       </ion-tab-button>

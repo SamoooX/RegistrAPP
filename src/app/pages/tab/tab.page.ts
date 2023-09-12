@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from './../../app.component';
 
 @Component({
   selector: 'app-tab',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabPage implements OnInit {
 
-  constructor() { }
+  permission!: boolean;
 
+  constructor(private dataService: DataService) { }
+  
   ngOnInit() {
+    this.permission = this.dataService.getPermission();
   }
 
 }

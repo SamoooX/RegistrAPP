@@ -35,8 +35,6 @@ const routes: Routes = [
     path: 'editar-datos',
     loadChildren: () => import('./pages/editar-datos/editar-datos.module').then( m => m.EditarDatosPageModule)
   },
-
-
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { DataService } from './../../app.component';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +11,18 @@ import { map } from 'rxjs/operators';
 export class HomePage {
 
   ramos: any =[];
+  permission!: boolean;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private dataService: DataService) {}
 
   ngOnInit() {
     this.getRamos().subscribe(res=>{
       console.log("Res", res)
       this.ramos = res;
     });
+    this.permission = this.dataService.getPermission();
   }
 
   getRamos(){

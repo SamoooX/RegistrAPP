@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-
+/*  */
+import { DataService } from './../../app.component';
+/*  */
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -9,22 +11,34 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  usuario={
-    username:"",
-    password:"",
+  usuario = {
+    username: "",
+    password: "",
   }
 
-  constructor(private router:Router,private alertController:AlertController) { }
+  constructor(
+    private router: Router,
+    private alertController: AlertController,
+    /*  */
+    private dataService: DataService,
+    /*  */
+  ) { }
+
+  /*  */
+  setPermission(value: boolean) {
+    this.dataService.setPermission(value);
+  }
+  /*  */
 
   ngOnInit() {
   }
-  onSubmit()
-  {
-    if (this.usuario.username=="mat@duoc.cl" && this.usuario.password=="123"){
+
+  onSubmit() {
+    if (this.usuario.username == "mat@duoc.cl" && this.usuario.password == "123") {
       this.router.navigate(['tab/home'])
     }
-    else{
-      
+    else {
+
       this.presentAlert()
     }
   }
@@ -35,8 +49,8 @@ export class LoginPage implements OnInit {
       subHeader: 'Información',
       message: "Usuario y/o password incorrectos",
       buttons: ['OK'],
-      backdropDismiss:false,
-      
+      backdropDismiss: false,
+
     });
     await alert.present();
   }
