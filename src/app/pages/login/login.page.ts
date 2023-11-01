@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-/*  */
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from './../../app.component';
-/*  */
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -11,35 +12,34 @@ import { DataService } from './../../app.component';
 })
 export class LoginPage implements OnInit {
 
-  usuario = {
-    username: "",
-    password: "",
+  loginForm: FormGroup;
+  
+
+  constructor(private router:Router,private alertController:AlertController,private dataService:DataService,) {
+
+    this.loginForm = new FormGroup({
+      'username': new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$') // Asegúrate de reemplazar esta expresión regular con la que necesitas
+      ]),
+      'password': new FormControl('', [
+        Validators.required
+      ])
+    });
   }
 
-  constructor(
-    private router: Router,
-    private alertController: AlertController,
-    /*  */
-    private dataService: DataService,
-    /*  */
-  ) { }
-
-  /*  */
   setPermission(value: boolean) {
     this.dataService.setPermission(value);
   }
-  /*  */
-
+  
   ngOnInit() {
   }
-
   onSubmit() {
-    if (this.usuario.username == "mat@duoc.cl" && this.usuario.password == "123") {
-      this.router.navigate(['tab/home'])
-    }
-    else {
-
-      this.presentAlert()
+    if (this.loginForm.valid) {
+      
+      this.router.navigate(['/home']);
+    } else {
+      this.presentAlert();
     }
   }
 
@@ -49,8 +49,8 @@ export class LoginPage implements OnInit {
       subHeader: 'Información',
       message: "Usuario y/o password incorrectos",
       buttons: ['OK'],
-      backdropDismiss: false,
-
+      backdropDismiss:false,
+      
     });
     await alert.present();
   }

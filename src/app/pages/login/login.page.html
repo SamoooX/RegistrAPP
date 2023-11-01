@@ -1,4 +1,3 @@
-
 <ion-content class="ion-padding">
   <div id="header">
     <div id="app-var">
@@ -11,41 +10,40 @@
   <div class="wrapper">
     <ion-card>
       <h3>Iniciar Sesión</h3>
-      <form #miFormulario="ngForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <ion-item>
           <ion-icon name="mail" class="ion-padding"></ion-icon>
-          <ion-input labelPlacement="floating" label="E-mail" required type="email" aria-label="Email" name="email"
-            [(ngModel)]="usuario.username"></ion-input>
+          <ion-input labelPlacement="floating" label="E-mail" required type="email" aria-label="Email" name="username"
+            formControlName="username"></ion-input>
         </ion-item>
+        <p *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">Por favor, introduce un correo electronico.</p>
+      
         <ion-item>
           <ion-icon name="lock-closed" class="ion-padding"></ion-icon>
           <ion-input labelPlacement="floating" label="Password" required type="password" aria-label="password"
-            name="password" [(ngModel)]="usuario.password"></ion-input>
+            name="password" formControlName="password"></ion-input>
         </ion-item>
-        <!--       <ion-button expand="full" color="warning" type="submit" class="ion-padding" [disabled]="miFormulario.invalid">
-        Login
-      </ion-button> -->
-
+        <p *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">Por favor, introduce una contraseña.</p>
+      
         <!-- Botón para Profesor -->
         <ion-button class="animate__animated animate__flip" expand="full" color="warning" type="submit" (click)="setPermission(true)">Iniciar sesión como
           Profesor</ion-button>
-
+      
         <!-- Botón para Estudiante -->
         <ion-button class="animate__animated animate__flip" expand="full" color="warning" type="submit" (click)="setPermission(false)">Iniciar sesión como
           Estudiante</ion-button>
-
       </form>
     </ion-card>
 
     <div class="line-text ion-padding">
       <span class="lines"></span>
       <span class="text"><a href="/recuperar-contra">¿Olvidaste tu contraseña?</a></span>
-    </div>
+    </div> 
 
     <div class="line-text ion-padding">
       <span class="lines"></span>
       <span class="text">¿Aún no tienes cuenta? </span><span class="text"><a href="/register">Registrate</a></span>
-    </div>
+    </div> 
   </div>
 
 
