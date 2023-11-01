@@ -33,6 +33,10 @@ ion-content {
                 }
             }
         }
+
+        .error{
+            color: red;
+        }
         
     }
 
@@ -49,6 +53,8 @@ ion-content {
         }
     }
 }
+
+
 
 * {
     font-family: 'Montserrat', sans-serif;

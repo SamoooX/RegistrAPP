@@ -20,7 +20,7 @@ export class LoginPage implements OnInit {
     this.loginForm = new FormGroup({
       'username': new FormControl('', [
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$') // Asegúrate de reemplazar esta expresión regular con la que necesitas
+        Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$')
       ]),
       'password': new FormControl('', [
         Validators.required
