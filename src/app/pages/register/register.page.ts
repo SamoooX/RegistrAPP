@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { User } from 'src/app/models/user.model';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-register',
@@ -8,26 +12,45 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  
+  form : FormGroup;
 
-  constructor(private router:Router, private alertController:AlertController) { }
+  constructor(
+    private router: Router,
+    private alertController: AlertController
+  ) {
 
-  usuario={
-    username:"",
-    email:"",
-    password:"",
-    password2:"",
+    this.form= new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    });
   }
 
-  ngOnInit() {
-  }
-  onSubmit()
-  {
-    if (this.usuario.username=="Matias Aninir" && this.usuario.email=="mat@duoc.cl" && this.usuario.password=="123"  && this.usuario.password=="123"){
-      this.router.navigate(['/login'])
-    }
-    else{
-      
-      this.presentAlert()
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
+
+  ngOnInit() {}
+
+  async onSubmit() {
+    if (this.form.valid) {
+      const loading = await this.utilsSvc.loading();
+      await loading.present();
+
+      this.firebaseSvc.signUp(this.form.value as User).then(async res => {
+     
+        await this.firebaseSvc.updateUser(this.form.value.name);
+
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+
+          this.presentAlert();
+        })
+        .finally(() => {
+          loading.dismiss();
+        });
     }
   }
 
@@ -35,10 +58,9 @@ export class RegisterPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Alerta',
       subHeader: 'Información',
-      message: "Valores no validos",
+      message: 'Valores no validos',
       buttons: ['OK'],
-      backdropDismiss:false,
-      
+      backdropDismiss: false,
     });
     await alert.present();
   }
