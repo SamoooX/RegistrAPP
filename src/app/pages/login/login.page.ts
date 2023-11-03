@@ -1,11 +1,24 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { DataService } from './../../app.component';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { User } from 'src/app/models/user.model';
 import { UtilsService } from 'src/app/services/utils.service';
+
+
+
+
+function emailDomainValidator(control: AbstractControl): { [key: string]: any } | null {
+  const email: string = control.value;
+  const domain = email.substring(email.lastIndexOf('@') + 1);
+  if (email === '' || domain.toLowerCase() === 'duocuc.cl' || domain.toLowerCase() === 'profesor.duoc.cl') {
+    return null;
+  } else {
+    return { 'emailDomain': true };
+  }
+}
 
 @Component({
   selector: 'app-login',
@@ -24,7 +37,8 @@ export class LoginPage implements OnInit {
     this.loginForm = new FormGroup({
       email: new FormControl('', [
         Validators.required,
-        Validators.email
+        Validators.email,
+        emailDomainValidator
       ]),
       password: new FormControl('', [Validators.required]),
     });
@@ -43,16 +57,23 @@ export class LoginPage implements OnInit {
     if (this.loginForm.valid) {
       const loading = await this.utilsSvc.loading();
       await loading.present();
-
+  
       this.firebaseSvc
         .signIn(this.loginForm.value as User)
         .then(res => {
+          const email: string = this.loginForm.get('email').value;
+          const domain = email.substring(email.lastIndexOf('@') + 1);
+          if (domain.toLowerCase() === 'duocuc.cl') {
+            this.dataService.setPermission(false); // Permiso para alumnos
+          } else if (domain.toLowerCase() === 'profesor.duoc.cl') {
+            this.dataService.setPermission(true); // Permiso para profesores
+          }
           this.router.navigate(['tab/home']);
           console.log(res);
         })
         .catch((error) => {
           console.log(error);
-
+  
           this.presentAlert();
         })
         .finally(() => {

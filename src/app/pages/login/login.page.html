@@ -25,13 +25,8 @@
         </ion-item>
         <p class="Error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">Por favor, introduce una contraseña.</p>
     
-        <!-- Botón para Profesor -->
-        <ion-button class="animate__animated animate__flip" expand="full" color="warning" type="submit" (click)="setPermission(true)">Iniciar sesión como
-            Profesor</ion-button>
-    
         <!-- Botón para Estudiante -->
-        <ion-button class="animate__animated animate__flip" expand="full" color="warning" type="submit" (click)="setPermission(false)">Iniciar sesión como
-            Estudiante</ion-button>
+        <ion-button class="animate__animated animate__flip" expand="full" color="warning" type="submit" (click)="setPermission(false)">Iniciar sesión</ion-button>
     </form>
     </ion-card>
 
