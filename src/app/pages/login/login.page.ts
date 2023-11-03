@@ -58,9 +58,7 @@ export class LoginPage implements OnInit {
       const loading = await this.utilsSvc.loading();
       await loading.present();
   
-      this.firebaseSvc
-        .signIn(this.loginForm.value as User)
-        .then(res => {
+      this.firebaseSvc.signIn(this.loginForm.value as User).then(res => {
           const email: string = this.loginForm.get('email').value;
           const domain = email.substring(email.lastIndexOf('@') + 1);
           if (domain.toLowerCase() === 'duocuc.cl') {
@@ -68,8 +66,11 @@ export class LoginPage implements OnInit {
           } else if (domain.toLowerCase() === 'profesor.duoc.cl') {
             this.dataService.setPermission(true); // Permiso para profesores
           }
+
+// -----------------------Ruta---------------------------------------------------------------
           this.router.navigate(['tab/home']);
-          console.log(res);
+// --------------------------------------------------------------------------------------
+          this.getUserInfo(res.user.uid);
         })
         .catch((error) => {
           console.log(error);
@@ -91,5 +92,28 @@ export class LoginPage implements OnInit {
       backdropDismiss: false,
     });
     await alert.present();
+  }
+
+
+  async getUserInfo(uid:string) {
+    if (this.loginForm.valid) {
+      const loading = await this.utilsSvc.loading();
+      await loading.present();
+
+      let path = 'users/$(uid);'
+
+      this.firebaseSvc.getDocument(path).then(user => {
+          
+        this.utilsSvc.saveInLocalStorage('user', user)
+        })
+        .catch((error) => {
+          console.log(error);
+
+          this.presentAlert();
+        })
+        .finally(() => {
+          loading.dismiss();
+        });
+    }
   }
 }

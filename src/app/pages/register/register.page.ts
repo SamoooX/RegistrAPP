@@ -35,6 +35,7 @@ export class RegisterPage implements OnInit {
   ) {
     this.form = new FormGroup(
       {
+        uid: new FormControl (''),
         email: new FormControl('', [Validators.required,Validators.email,emailDomainValidator,]),
         password: new FormControl('', [Validators.required,Validators.minLength(8),]),
         password2: new FormControl('', [Validators.required,Validators.minLength(8),]),
@@ -54,12 +55,16 @@ export class RegisterPage implements OnInit {
       const loading = await this.utilsSvc.loading();
       await loading.present();
 
-      this.firebaseSvc
-        .signUp(this.form.value as User)
-        .then(async (res) => {
+      this.firebaseSvc.signUp(this.form.value as User).then(async (res) => {
+
           await this.firebaseSvc.updateUser(this.form.value.name);
+
+          let uid = res.user.uid;
+          this.form.controls['uid'].setValue(uid);
+
+          this.setUserInfo(uid);
+
           this.router.navigate(['/login']);
-          console.log(res);
         })
         .catch((error) => {
           console.log(error);
@@ -94,5 +99,29 @@ export class RegisterPage implements OnInit {
         return null;
       }
     };
+  }
+
+
+
+  async setUserInfo(uid:string) {
+    if (this.form.valid) {
+      const loading = await this.utilsSvc.loading();
+      await loading.present();
+
+      let path = 'users/$(uid);'
+
+      this.firebaseSvc.setDocument(path, this.form.value).then(async res => {
+          
+        this.utilsSvc.saveInLocalStorage('user', this.form.value)
+        })
+        .catch((error) => {
+          console.log(error);
+
+          this.presentAlert();
+        })
+        .finally(() => {
+          loading.dismiss();
+        });
+    }
   }
 }

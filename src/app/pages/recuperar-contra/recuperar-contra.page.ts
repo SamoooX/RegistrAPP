@@ -1,6 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { DataService } from './../../app.component';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { User } from 'src/app/models/user.model';
+import { UtilsService } from 'src/app/services/utils.service';
+
+function emailDomainValidator(control: AbstractControl): { [key: string]: any } | null {
+  const email: string = control.value;
+  const domain = email.substring(email.lastIndexOf('@') + 1);
+  if (email === '' || domain.toLowerCase() === 'duocuc.cl' || domain.toLowerCase() === 'profesor.duoc.cl') {
+    return null;
+  } else {
+    return { 'emailDomain': true };
+  }
+}
+
 
 @Component({
   selector: 'app-recuperar-contra',
@@ -9,20 +25,44 @@ import { AlertController } from '@ionic/angular';
 })
 export class RecuperarContraPage implements OnInit {
 
-  constructor(private router:Router, private alertController:AlertController) { }
+  form: FormGroup;
 
-    usuario={
-      email:"",
-    }
-  ngOnInit() {
+  constructor(
+    private router: Router,
+    private alertController: AlertController,
+    private dataService: DataService
+  ) {
+    this.form = new FormGroup({
+      email: new FormControl('', [Validators.required,Validators.email,emailDomainValidator]),
+    });
   }
-  onSubmit()
-  {
-    if (this.usuario.email== "mat@duoc.cl"){
-      this.aviso()
-    }
-    else{
-      this.presentAlert()
+
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
+
+  setPermission(value: boolean) {
+    this.dataService.setPermission(value);
+  }
+
+  ngOnInit() {}
+
+  async onSubmit() {
+    if (this.form.valid) {
+      const loading = await this.utilsSvc.loading();
+      await loading.present();
+  
+      this.firebaseSvc.sendRecoveryEmail(this.form.value.email).then(res => {
+
+        this.aviso();
+        this.form.reset();
+        })
+        .catch((error) => {
+          console.log(error);
+          this.presentAlert();
+        })
+        .finally(() => {
+          loading.dismiss();
+        });
     }
   }
 
@@ -50,4 +90,9 @@ export class RecuperarContraPage implements OnInit {
     });
     await alert.present();
   }
+
+
 }
+
+
+

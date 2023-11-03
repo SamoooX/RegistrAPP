@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from './../../app.component';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-perfil',
@@ -12,6 +14,10 @@ export class PerfilPage implements OnInit {
   nombreUsuario: string = 'Matias Aninir';
   correoElectronico: string = 'mat@duoc.cl';
   
+
+  fireBaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
+
   constructor(
     private router:Router,
     private dataService: DataService) { }
@@ -32,6 +38,6 @@ export class PerfilPage implements OnInit {
   }
   
   cerrarSesion(){
-    this.router.navigate(['/login'])
+    this.fireBaseSvc.signOut();
   }
 }
