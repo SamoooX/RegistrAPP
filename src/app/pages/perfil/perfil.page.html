@@ -10,14 +10,14 @@
     </div>
     <div class="nombre">
       <ion-label>Nombre de Usuario: </ion-label>
-      <ion-text>{{ nombreUsuario }}</ion-text>
+      <ion-text>{{user()?.name}}</ion-text>
     </div>
   </div>
 
   <ion-card>
     <ion-card-content>
       <ion-label>Correo Electrónico:</ion-label>
-      <ion-text>{{ correoElectronico }}</ion-text>
+      <ion-text>{{user()?.email}}</ion-text>
     </ion-card-content>
   </ion-card>
   <ion-card>

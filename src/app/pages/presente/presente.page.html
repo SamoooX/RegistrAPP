@@ -1,12 +1,17 @@
 <app-header titulo="Presente"></app-header>
 
 <ion-content class="ion-padding">
-<ion-item>
-  <img src="assets/img/cam.png" alt="">
-</ion-item>
+  <ion-list>
+    <ion-item *ngFor="let barcode of barcodes">
+      <ion-label position="stacked">{{ barcode.format }}</ion-label>
+      <ion-input type="text" [value]="barcode.rawValue"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" color="warning">
+    <ion-fab-button (click)="scan()" [disabled]="!isSupported">
+      <ion-icon name="scan"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
-<div class="boton">
-  <ion-button (click)="presentAlert()" color="warning" expand="full">Registrar Asistencia</ion-button>
-</div>
 
 </ion-content>
