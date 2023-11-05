@@ -15,6 +15,7 @@ import { DataService } from './app.component';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { LocationAccuracy } from '@awesome-cordova-plugins/location-accuracy/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { environment } from 'src/environments/environment';
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     DataService,
+    LocationAccuracy,
   ],
   /*  */
   bootstrap: [AppComponent],
