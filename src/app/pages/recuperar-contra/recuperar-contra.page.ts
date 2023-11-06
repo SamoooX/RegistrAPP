@@ -9,6 +9,9 @@ import { UtilsService } from 'src/app/services/utils.service';
 
 function emailDomainValidator(control: AbstractControl): { [key: string]: any } | null {
   const email: string = control.value;
+  if (email === null) {
+    return null; // o manejarlo de acuerdo a tus requerimientos
+  }
   const domain = email.substring(email.lastIndexOf('@') + 1);
   if (email === '' || domain.toLowerCase() === 'duocuc.cl' || domain.toLowerCase() === 'profesor.duoc.cl') {
     return null;

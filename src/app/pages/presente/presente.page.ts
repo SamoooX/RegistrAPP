@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-presente',
@@ -11,8 +12,9 @@ export class PresentePage implements OnInit {
 
   isSupported = false;
   barcodes: Barcode[] = [];
+  firebaseSvc = inject(FirebaseService);
 
-  constructor(private alertController:AlertController) { }
+  constructor(private alertController:AlertController, ) { }
 
   ngOnInit() {
 
@@ -30,6 +32,13 @@ export class PresentePage implements OnInit {
     }
     const { barcodes } = await BarcodeScanner.scan();
     this.barcodes.push(...barcodes);
+
+    for (const barcode of barcodes) {
+      this.firebaseSvc.addDocument('asistencia', {
+        codigo: barcode.rawValue,
+        fecha: new Date()
+      });
+    }
   }
 
   async requestPermissions(): Promise<boolean> {
