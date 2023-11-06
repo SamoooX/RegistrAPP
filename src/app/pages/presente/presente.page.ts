@@ -15,14 +15,15 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./presente.page.scss'],
 })
 export class PresentePage implements OnInit {
+  texto: any;
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
 
   constructor(
     private alertController: AlertController,
     private locationAccuracy: LocationAccuracy,
     private barcodescanner: BarcodeScanner) { }
-  texto: any;
-  firebaseSvc = inject(FirebaseService);
-  utilsSvc = inject(UtilsService);
+
   ngOnInit() {
 
 
