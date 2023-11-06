@@ -11,15 +11,20 @@
   <div class="wrapper">
     <ion-card>
       <h3>Restablecer contraseña</h3>
-    <form #miFormulario="ngForm" (ngSubmit)="onSubmit()">
-      <ion-item>
-        <ion-icon  name="mail" class="ion-padding"></ion-icon>
-        <ion-input labelPlacement="floating" label="Email" required type="email" aria-label="Email" name="email"
-          [(ngModel)]="usuario.email"></ion-input>
-      </ion-item>
-      <ion-button expand="full" color="warning" type="submit" class="ion-padding" [disabled]="miFormulario.invalid">
-        Confirmar
-      </ion-button>
+
+      <p class="ion-text-center">Te enviaremos un email para que puedas restablecer tu contraseña</p>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <ion-item>
+            <ion-icon name="mail" class="ion-padding"></ion-icon>
+            <ion-input labelPlacement="floating" label="E-mail" required type="email" aria-label="Email" name="email"
+                formControlName="email"></ion-input>
+        </ion-item>
+        <p class="Error" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Por favor, introduce un correo electronico.</p>
+    
+      
+        <ion-button expand="full" color="warning" type="submit" class="ion-padding" [disabled]="form.invalid">
+          Confirmar
+        </ion-button>
     </form>
     </ion-card>
   </div>

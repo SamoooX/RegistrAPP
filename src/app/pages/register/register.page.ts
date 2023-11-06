@@ -1,6 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { FormControl,FormGroup,Validators,AbstractControl,ValidationErrors,} from '@angular/forms';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { User } from 'src/app/models/user.model';
+import { UtilsService } from 'src/app/services/utils.service';
+
+function emailDomainValidator(control: AbstractControl): { [key: string]: any } | null {
+  const email: string = control.value;
+  const domain = email.substring(email.lastIndexOf('@') + 1);
+  if (
+    email === '' ||
+    domain.toLowerCase() === 'duocuc.cl' ||
+    domain.toLowerCase() === 'profesor.duoc.cl'
+  ) {
+    return null;
+  } else {
+    return { emailDomain: true };
+  }
+}
 
 @Component({
   selector: 'app-register',
@@ -8,26 +26,54 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  
+  form: FormGroup;
 
-  constructor(private router:Router, private alertController:AlertController) { }
-
-  usuario={
-    username:"",
-    email:"",
-    password:"",
-    password2:"",
+  constructor(
+    private router: Router,
+    private alertController: AlertController
+  ) {
+    this.form = new FormGroup(
+      {
+        uid: new FormControl (''),
+        email: new FormControl('', [Validators.required,Validators.email,emailDomainValidator,]),
+        password: new FormControl('', [Validators.required,Validators.minLength(8),]),
+        password2: new FormControl('', [Validators.required,Validators.minLength(8),]),
+        name: new FormControl('', [Validators.required,Validators.minLength(6),]),
+      },
+      { validators: this.MustMatch('password', 'password2') }
+    );
   }
 
-  ngOnInit() {
-  }
-  onSubmit()
-  {
-    if (this.usuario.username=="Matias Aninir" && this.usuario.email=="mat@duoc.cl" && this.usuario.password=="123"  && this.usuario.password=="123"){
-      this.router.navigate(['/login'])
-    }
-    else{
-      
-      this.presentAlert()
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
+
+  ngOnInit() {}
+
+  async onSubmit() {
+    if (this.form.valid) {
+      const loading = await this.utilsSvc.loading();
+      await loading.present();
+
+      this.firebaseSvc.signUp(this.form.value as User).then(async (res) => {
+
+          await this.firebaseSvc.updateUser(this.form.value.name);
+
+          let uid = res.user.uid;
+          this.form.controls['uid'].setValue(uid);
+
+          this.setUserInfo(uid);
+
+          this.router.navigate(['/login']);
+        })
+        .catch((error) => {
+          console.log(error);
+
+          this.presentAlert();
+        })
+        .finally(() => {
+          loading.dismiss();
+        });
     }
   }
 
@@ -35,11 +81,47 @@ export class RegisterPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Alerta',
       subHeader: 'Información',
-      message: "Valores no validos",
+      message: 'Valores no validos',
       buttons: ['OK'],
-      backdropDismiss:false,
-      
+      backdropDismiss: false,
     });
     await alert.present();
+  }
+
+  MustMatch(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup): ValidationErrors | null => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
+
+      if (control.value !== matchingControl.value) {
+        return { mustMatch: true };
+      } else {
+        return null;
+      }
+    };
+  }
+
+
+
+  async setUserInfo(uid:string) {
+    if (this.form.valid) {
+      const loading = await this.utilsSvc.loading();
+      await loading.present();
+
+      let path = `users/${uid}`;
+
+      this.firebaseSvc.setDocument(path, this.form.value).then(async res => {
+          
+        this.utilsSvc.saveInLocalStorage('user', this.form.value)
+        })
+        .catch((error) => {
+          console.log(error);
+
+          this.presentAlert();
+        })
+        .finally(() => {
+          loading.dismiss();
+        });
+    }
   }
 }

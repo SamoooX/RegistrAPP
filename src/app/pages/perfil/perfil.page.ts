@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from './../../app.component';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { UtilsService } from 'src/app/services/utils.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-perfil',
@@ -9,9 +12,11 @@ import { DataService } from './../../app.component';
 })
 export class PerfilPage implements OnInit {
   permission!: boolean;
-  nombreUsuario: string = 'Matias Aninir';
-  correoElectronico: string = 'mat@duoc.cl';
   
+
+  fireBaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
+
   constructor(
     private router:Router,
     private dataService: DataService) { }
@@ -19,10 +24,16 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
     this.permission = this.dataService.getPermission();
   }
+
+  user(): User {
+    return this.utilsSvc.getFromLocalStorage('user');
+  }
+
   editarPerfil() {
     this.router.navigate(['/editar-datos'])
   }
 
+  
   agregarFoto() {
   
   }
@@ -32,6 +43,6 @@ export class PerfilPage implements OnInit {
   }
   
   cerrarSesion(){
-    this.router.navigate(['/login'])
+    this.fireBaseSvc.signOut();
   }
 }

@@ -9,8 +9,8 @@
 <ion-content class="ion-padding">
 
   <div class="bienvenida">
-    <ion-label *ngIf="permission">Bienvenido [Profesor]</ion-label>
-    <ion-label *ngIf="!permission">Bienvenido [Alumno]</ion-label>
+    <ion-label *ngIf="permission">Bienvenido {{user()?.name}}</ion-label>
+    <ion-label *ngIf="!permission">Bienvenido {{user()?.name}}</ion-label>
   </div>
 
   <ion-card *ngIf="!permission">

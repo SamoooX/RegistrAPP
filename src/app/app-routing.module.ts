@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NoAuthGuard } from './guards/no-auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule), canActivate:[AuthGuard]
   },
   {
     path: '',
@@ -25,15 +27,15 @@ const routes: Routes = [
   },
   {
     path: 'tab',
-    loadChildren: () => import('./pages/tab/tab.module').then( m => m.TabPageModule)
+    loadChildren: () => import('./pages/tab/tab.module').then( m => m.TabPageModule), canActivate:[AuthGuard]
   },
   {
     path: 'gqr',
-    loadChildren: () => import('./pages/gqr/gqr.module').then( m => m.GqrPageModule)
+    loadChildren: () => import('./pages/gqr/gqr.module').then( m => m.GqrPageModule), canActivate:[AuthGuard]
   },
   {
     path: 'editar-datos',
-    loadChildren: () => import('./pages/editar-datos/editar-datos.module').then( m => m.EditarDatosPageModule)
+    loadChildren: () => import('./pages/editar-datos/editar-datos.module').then( m => m.EditarDatosPageModule), canActivate:[AuthGuard]
   },
 ];
 
