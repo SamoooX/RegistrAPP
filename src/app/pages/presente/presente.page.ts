@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import {BarcodeScanner} from '@awesome-cordova-plugins/barcode-scanner/ngx'
 
 @Component({
   selector: 'app-presente',
@@ -10,41 +10,41 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class PresentePage implements OnInit {
 
-  isSupported = false;
-  barcodes: Barcode[] = [];
+  texto:any;
   firebaseSvc = inject(FirebaseService);
 
-  constructor(private alertController:AlertController, ) { }
+  constructor(private alertController:AlertController, private barcodescanner: BarcodeScanner) { }
 
   ngOnInit() {
 
-    BarcodeScanner.isSupported().then((result) => {
-      this.isSupported = result.supported;
-    });
+ 
 
   }
 
-  async scan(): Promise<void> {
-    const granted = await this.requestPermissions();
-    if (!granted) {
-      this.presentAlert();
-      return;
-    }
-    const { barcodes } = await BarcodeScanner.scan();
-    this.barcodes.push(...barcodes);
+  scan(){
+    this.barcodescanner.scan().then(barcodedata=>{
+      console.log("Scaneando...", barcodedata);
+      this.texto=(JSON.stringify(barcodedata));
 
-    for (const barcode of barcodes) {
+      const [idAlumno, idAsignatura] = barcodedata.text.split('-');
+
       this.firebaseSvc.addDocument('asistencia', {
-        codigo: barcode.rawValue,
-        fecha: new Date()
+        idAlumno,
+        idAsignatura,
+        fecha: new Date(),
+        asistencia: true
       });
-    }
+      
+    }).catch(err=>{
+      console.log("ERROR AL ESCANEAR!!!!");
+    })
+
   }
 
-  async requestPermissions(): Promise<boolean> {
-    const { camera } = await BarcodeScanner.requestPermissions();
-    return camera === 'granted' || camera === 'limited';
-  }
+    
+  
+
+
 
   async presentAlert() {
     const alert = await this.alertController.create({
