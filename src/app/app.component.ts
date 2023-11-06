@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { UtilsService } from './services/utils.service';
+import { FirebaseService } from './services/firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,27 @@ import { Injectable } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
+  utilsSvc = inject(UtilsService);
+  firebaseSvc = inject(FirebaseService);
+
   constructor() {}
+
+
+  ngOnInit() {
+      
+    if(navigator.onLine) {
+      // Si hay conexión a internet
+      let asistenciaData = this.utilsSvc.getFromLocalStorage('asistencia');
+      if(asistenciaData) {
+        this.firebaseSvc.addDocument('asistencia', asistenciaData).then(() => {
+          // Los datos de asistencia se guardaron con éxito en Firebase
+          // eliminar los datos del localstorage
+          this.utilsSvc.saveInLocalStorage('asistencia', null);
+        });
+      }
+    }
+  }
 }
 
 @Injectable({

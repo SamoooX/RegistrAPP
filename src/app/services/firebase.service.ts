@@ -1,10 +1,11 @@
 import { User } from './../models/user.model';
-import { Inject, Injectable, inject } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from 'firebase/auth';
 import {AngularFirestore } from '@angular/fire/compat/firestore';
-import { getFirestore, setDoc, doc, getDoc } from '@angular/fire/firestore'
+import { getFirestore, setDoc, doc, getDoc, addDoc } from '@angular/fire/firestore'
 import { UtilsService } from './utils.service';
+import { collection } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -63,6 +64,11 @@ export class FirebaseService {
 
   async getDocument(path: string){
     return (await getDoc(doc(getFirestore(),path))).data();
+  }
+
+  // Agregar Documento 
+  addDocument(path: string, data: any){
+    return addDoc(collection(getFirestore(),path),data);
   }
 
 }

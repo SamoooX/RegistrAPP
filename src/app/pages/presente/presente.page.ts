@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Geolocation, Position } from '@capacitor/geolocation';
 import { Capacitor } from '@capacitor/core';
 import { AndroidSettings, IOSSettings, NativeSettings } from 'capacitor-native-settings';
 import { LocationAccuracy } from '@awesome-cordova-plugins/location-accuracy/ngx';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
+import { User } from 'firebase/auth';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-presente',
@@ -14,10 +18,51 @@ export class PresentePage implements OnInit {
 
   constructor(
     private alertController: AlertController,
-    private locationAccuracy: LocationAccuracy) { }
-
+    private locationAccuracy: LocationAccuracy,
+    private barcodescanner: BarcodeScanner) { }
+  texto: any;
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
   ngOnInit() {
+
+
+
   }
+
+  scan() {
+    this.barcodescanner.scan().then(barcodedata => {
+      console.log("Scaneando...", barcodedata);
+      this.texto = (JSON.stringify(barcodedata));
+
+      let user = this.user();
+      let idAlumno = user.uid;
+
+      const idAsignatura = barcodedata.text;
+
+      const asistenciaData = {
+        idAlumno,
+        idAsignatura,
+        fecha: new Date(),
+        asistencia: true
+      };
+
+      // Guardar en Firebase
+      this.firebaseSvc.addDocument('asistencia', asistenciaData);
+
+      // Guardar en localStorage
+      this.utilsSvc.saveInLocalStorage('asistencia', asistenciaData);
+
+    }).catch(err => {
+      console.log("ERROR AL ESCANEAR!!!!");
+    })
+  }
+
+
+  user(): User {
+    return this.utilsSvc.getFromLocalStorage('user');
+  }
+
+
 
   async presentAlert() {
     const alert = await this.alertController.create({
