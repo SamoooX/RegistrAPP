@@ -1,8 +1,0 @@
-{
-	"appId": "io.ionic.starter",
-	"appName": "RegistrAPP",
-	"webDir": "www",
-	"server": {
-		"androidScheme": "https"
-	}
-}
