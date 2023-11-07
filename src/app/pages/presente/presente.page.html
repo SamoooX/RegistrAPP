@@ -1,23 +1,24 @@
 <app-header titulo="Presente"></app-header>
 
 <ion-content class="ion-padding">
-<ion-item>
-  <img src="assets/img/cam.png" alt="">
-</ion-item>
-
-<div class="boton">
-  <ion-button (click)="presentAlert()" color="warning" expand="full">Registrar Asistencia</ion-button>
-</div>
-
-<ion-button (click)="getCurrentLocation()">Obtener Coordenadas</ion-button>
-
-  <ion-grid>
-    <ion-row class="ion-align-items-end">
-      <ion-col size="12" class="ion-text-center">
-        <ion-button (click)="scan()" color="warning" shape="round">
-          Registrar asistencia
-        </ion-button>
+  <div class="contenedor">
+    <ion-grid>
+      <ion-row class="ion-align-items-end">
+        <ion-col size="12" class="ion-text-center">
+          <ion-button color="warning" shape="round" (click)="getCurrentLocation()">Obtener Coordenadas</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
+  
+    <ion-grid>
+      <ion-row class="ion-align-items-end">
+        <ion-col size="12" class="ion-text-center">
+          <ion-button (click)="scan()" color="warning" shape="round">
+            Registrar asistencia
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  
 </ion-content>
