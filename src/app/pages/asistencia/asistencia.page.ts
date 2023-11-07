@@ -23,8 +23,12 @@ export class AsistenciaPage implements OnInit {
   
   async ngOnInit() {
     this.ramos = await this.firebaseSvc.getSubjects();
-
-    this.asistencia = (await this.firebaseSvc.getAttendances()).map(asist => {
+    console.log(this.ramos);
+    console.log(this.asistencia);
+  }
+  
+  async asis(idAlumno: any, idAsis: any) {
+    this.asistencia = (await this.firebaseSvc.getAsistencia(idAlumno, idAsis)).map(asist => {
       const fecha = new Date(asist['fecha'].seconds * 1000);
       return {
         ...asist,
@@ -33,6 +37,4 @@ export class AsistenciaPage implements OnInit {
     });
   }
   
-
-
 }
