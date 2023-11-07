@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { Asignatura } from 'src/app/models/asignatura.model';
+
 
 @Component({
   selector: 'app-asistencia',
@@ -12,37 +15,24 @@ export class AsistenciaPage implements OnInit {
 
   ramos: any =[];
   asistencia: any=[];
+  
+
+  firebaseSvc = inject(FirebaseService);
 
   constructor(private http: HttpClient) { }
   
-  ngOnInit() {
-    this.getRamos().subscribe(res=>{
-      console.log("Res", res)
-      this.ramos = res;
-    });
-    this.getAsistencia().subscribe(res=>{
-      console.log("Res", res)
-      this.asistencia = res;
+  async ngOnInit() {
+    this.ramos = await this.firebaseSvc.getSubjects();
+
+    this.asistencia = (await this.firebaseSvc.getAttendances()).map(asist => {
+      const fecha = new Date(asist['fecha'].seconds * 1000);
+      return {
+        ...asist,
+        fecha: fecha
+      };
     });
   }
   
-  getRamos(){
-    return this.http
-    .get("assets/files/ramos.json")
-    .pipe(
-      map((res:any) => {
-        return res.data;
-      })
-    )
-  }
 
-  getAsistencia(){
-    return this.http
-    .get("assets/files/asistencia.json")
-    .pipe(
-      map((res:any) => {
-        return res.data;
-      })
-    )
-  }
+
 }

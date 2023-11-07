@@ -37,6 +37,7 @@ export class AppComponent {
 })
 export class DataService {
   private permission: boolean = false;
+  private CodigoAsig: any;
 
   getPermission() {
     return this.permission;
@@ -44,5 +45,13 @@ export class DataService {
 
   setPermission(value: boolean) {
     this.permission = value;
+  }
+
+  getCodigoAsig() {
+    return this.CodigoAsig;
+  }
+
+  setCodigoAsig(value: any) {
+    this.CodigoAsig = value;
   }
 }

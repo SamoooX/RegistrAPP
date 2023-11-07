@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from './../../app.component';
 
 @Component({
   selector: 'app-gqr',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GqrPage implements OnInit {
   codigo: any;
-  constructor() { 
-    this.codigo = this.generarCodigoUnico();
+  constructor(private dataService: DataService) { 
+    this.codigo = this.dataService.getCodigoAsig();
   }
 
   generarCodigoUnico(): string {
