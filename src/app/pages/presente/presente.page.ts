@@ -86,8 +86,8 @@ export class PresentePage implements OnInit {
       console.log('Coordenadas:', position.coords);
 
       // Coordenadas del lugar de referencia(DUOC)
-      const lugarLat = -36.796275;
-      const lugarLon = -73.056666;
+      const lugarLat = -36.7959298;
+      const lugarLon = -73.0603091;
 
       const distancia = this.calcularDistancia(
         position.coords.latitude,
@@ -96,7 +96,7 @@ export class PresentePage implements OnInit {
         lugarLon
       );
 
-      if (distancia < 0.15) {
+      if (distancia < 0.25) {
         console.log('Las coordenadas están cerca del lugar.');
         this.ValidacionCoordenadas = true;
       } else {
