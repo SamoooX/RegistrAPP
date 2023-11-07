@@ -19,7 +19,7 @@
               <div class="fec">
                 <ion-label class="ion-no-margin">FECHA</ion-label>
               </div>
-              <ion-list class="fechas pad" *ngFor="let asist of asistencia" back style="color: {{asist.color}};">
+              <ion-list class="fechas pad" *ngFor="let asist of asistencia[ramo.id]" back style="color: {{asist.color}};">
                 {{asist['fecha'] | date:'EEEE d MMMM y'}}
               </ion-list>
             </ion-col>
@@ -27,9 +27,9 @@
               <div class="asis">
                 <ion-label>Asistencia</ion-label>
               </div>
-              <div class="asistencias" *ngFor="let asist of asistencia" back>
+              <div class="asistencias" *ngFor="let asist of asistencia[ramo.id]" back>
                 <ion-list class="pad" style="color: {{asist.color}};">
-                  Presente
+                  {{asist.asistencia ? 'Presente' : 'Ausente'}}
                 </ion-list>
               </div>
             </ion-col>

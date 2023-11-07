@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { DataService } from './../../app.component';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-qr',
@@ -12,17 +13,14 @@ import { DataService } from './../../app.component';
 export class QrPage implements OnInit {
 
   ramos: any =[];
-
+  firebaseSvc = inject(FirebaseService);
   constructor(
     private router: Router,
     private http: HttpClient,
     private dataService: DataService) { }
 
-  ngOnInit() {
-    this.getRamos().subscribe(res=>{
-      console.log("Res", res)
-      this.ramos = res;
-    });
+  async ngOnInit() {
+    this.ramos = await this.firebaseSvc.getSubjects();
   }
 
   getRamos(){

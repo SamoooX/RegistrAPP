@@ -23,14 +23,35 @@ export class AsistenciaPage implements OnInit {
   
   async ngOnInit() {
     this.ramos = await this.firebaseSvc.getSubjects();
-
-    this.asistencia = (await this.firebaseSvc.getAttendances()).map(asist => {
+  
+    // Crea un mapa de asistencias por ID de asignatura
+    const asistenciasPorId = {};
+    for (let ramo of this.ramos) {
+      asistenciasPorId[ramo.id] = [];
+    }
+  
+    // Llena el mapa con las asistencias correspondientes
+    const todasAsistencias = await this.firebaseSvc.getAttendances();
+    for (let asist of todasAsistencias) {
       const fecha = new Date(asist['fecha'].seconds * 1000);
-      return {
-        ...asist,
-        fecha: fecha
-      };
-    });
+      if (asistenciasPorId.hasOwnProperty(asist['idAsignatura'])) {
+        asistenciasPorId[asist['idAsignatura']].push({
+          ...asist,
+          fecha: fecha
+        });
+      }
+    }
+  
+    this.asistencia = asistenciasPorId;
+  }
+  
+  getAsistenciasPorAsignatura(nombreAsignatura: string) {
+    if (!this.asistencia.hasOwnProperty(nombreAsignatura)) {
+      console.log('No se encontró el nombre de la asignatura en el mapa: ', nombreAsignatura);
+      return [];
+    }
+  
+    return this.asistencia[nombreAsignatura];
   }
   
 

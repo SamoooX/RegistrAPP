@@ -9,21 +9,20 @@
       <ion-item slot="header" lines="full" class="ramos" color="mycolor">
         <ion-icon slot="start" name="ellipsis-vertical-outline" class="ion-no-padding" class="ion-no-margin"></ion-icon>
         <ion-label>
-          <h1>{{ramo.name}}</h1>
-          <h2>{{ramo.cod}}</h2>
+          <h1>{{ramo.nombre_asignatura}}</h1>
         </ion-label>
       </ion-item>
       <div class="ion-padding" slot="content" color="mycolor">
-        <ion-accordion-group *ngFor="let ramo of ramos" back>
+        <ion-accordion-group>
           <ion-accordion>
             <ion-item slot="header" lines="full" class="ramos" color="mycolor">
               <ion-icon slot="start" name="book-outline"></ion-icon>
               <ion-label>
-                <h1>{{ramo.section}}</h1>
+                <h1>001D</h1>
               </ion-label>
             </ion-item>
             <div class="ion-padding" slot="content" color="mycolor">
-              <ion-button expand="block" fill="clear" shape="round" (click)="onClickAndSetCod('gqr', ramo.name)">
+              <ion-button expand="block" fill="clear" shape="round" (click)="onClickAndSetCod('gqr', ramo.id)">
                 Generar QR
               </ion-button>
             </div>
