@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { DataService } from './../../app.component';
 
 @Component({
   selector: 'app-qr',
@@ -14,7 +15,8 @@ export class QrPage implements OnInit {
 
   constructor(
     private router: Router,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private dataService: DataService) { }
 
   ngOnInit() {
     this.getRamos().subscribe(res=>{
@@ -37,4 +39,14 @@ export class QrPage implements OnInit {
   {
     this.router.navigate(['/'+ruta])
   }
+
+  setCod(value: any) {
+    this.dataService.setCodigoAsig(value);
+  }
+
+  onClickAndSetCod(ruta: string, value: any) {
+    this.onClick(ruta); // Llama a la función onClick con la ruta
+    this.setCod(value); // Llama a la función setCod con el valor que desees
+  }
+
 }
