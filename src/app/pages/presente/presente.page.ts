@@ -15,7 +15,11 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./presente.page.scss'],
 })
 export class PresentePage implements OnInit {
+  //qr
   texto: any;
+  //coordenadas
+  ValidacionCoordenadas: boolean = false;
+  //servicios
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
 
@@ -82,8 +86,8 @@ export class PresentePage implements OnInit {
       console.log('Coordenadas:', position.coords);
 
       // Coordenadas del lugar de referencia(DUOC)
-      const lugarLat = -33.467198085792575;
-      const lugarLon = -70.64747337871752;
+      const lugarLat = -36.796275;
+      const lugarLon = -73.056666;
 
       const distancia = this.calcularDistancia(
         position.coords.latitude,
@@ -94,8 +98,10 @@ export class PresentePage implements OnInit {
 
       if (distancia < 0.15) {
         console.log('Las coordenadas están cerca del lugar.');
+        this.ValidacionCoordenadas = true;
       } else {
         console.log('Las coordenadas no están cerca del lugar.');
+        this.ValidacionCoordenadas = false;
       }
     } catch (error) {
       console.error('Error al obtener las coordenadas:', error);
@@ -162,4 +168,7 @@ export class PresentePage implements OnInit {
     const distancia = R * c; // Distancia en kilómetros
     return distancia;
   }
+
+
+
 }
