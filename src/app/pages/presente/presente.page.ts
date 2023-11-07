@@ -86,8 +86,8 @@ export class PresentePage implements OnInit {
       console.log('Coordenadas:', position.coords);
 
       // Coordenadas del lugar de referencia(DUOC)
-      const lugarLat = -36.7959298;
-      const lugarLon = -73.0603091;
+      const lugarLat = -36.79538077676426;
+      const lugarLon = -73.06240811939503;
 
       const distancia = this.calcularDistancia(
         position.coords.latitude,
