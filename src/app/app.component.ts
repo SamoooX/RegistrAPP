@@ -38,7 +38,7 @@ export class AppComponent {
 export class DataService {
   private permission: boolean = false;
   private CodigoAsig: any;
-  private activaBoton: any;
+  private activaBoton: boolean = false;
 
   getPermission() {
     return this.permission;
