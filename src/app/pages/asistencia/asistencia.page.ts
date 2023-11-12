@@ -4,6 +4,8 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Asignatura } from 'src/app/models/asignatura.model';
+import { UtilsService } from 'src/app/services/utils.service';
+import { User } from 'src/app/models/user.model';
 
 
 @Component({
@@ -18,6 +20,7 @@ export class AsistenciaPage implements OnInit {
   
 
   firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
 
   constructor(private http: HttpClient) { }
   
@@ -30,11 +33,15 @@ export class AsistenciaPage implements OnInit {
       asistenciasPorId[ramo.id] = [];
     }
   
+    // Obtén el ID
+    let user = this.user();
+    let idAlumnoLogueado = user.uid;  
+  
     // Llena el mapa con las asistencias correspondientes
     const todasAsistencias = await this.firebaseSvc.getAttendances();
     for (let asist of todasAsistencias) {
       const fecha = new Date(asist['fecha'].seconds * 1000);
-      if (asistenciasPorId.hasOwnProperty(asist['idAsignatura'])) {
+      if (asistenciasPorId.hasOwnProperty(asist['idAsignatura']) && asist['idAlumno'] === idAlumnoLogueado) {
         asistenciasPorId[asist['idAsignatura']].push({
           ...asist,
           fecha: fecha
@@ -53,7 +60,9 @@ export class AsistenciaPage implements OnInit {
   
     return this.asistencia[nombreAsignatura];
   }
-  
 
+  user(): User {
+    return this.utilsSvc.getFromLocalStorage('user');
+  }
 
 }

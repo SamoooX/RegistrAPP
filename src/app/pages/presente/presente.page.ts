@@ -34,8 +34,11 @@ export class PresentePage implements OnInit {
 
   }
 
-  scan() {
-    this.barcodescanner.scan().then(barcodedata => {
+  async scan() {
+    const loading = await this.utilsSvc.loading();
+    await loading.present();
+
+    this.barcodescanner.scan().then(async barcodedata => {
       console.log("Scaneando...", barcodedata);
       this.texto = (JSON.stringify(barcodedata));
 
@@ -57,9 +60,15 @@ export class PresentePage implements OnInit {
       // Guardar en localStorage
       this.utilsSvc.saveInLocalStorage('asistencia', asistenciaData);
 
-    }).catch(err => {
+      
+
+    }).catch(async err => {
       console.log("ERROR AL ESCANEAR!!!!");
-    })
+      (await loading).dismiss();
+    }).finally(() => {
+      loading.dismiss();
+    });
+
   }
 
 
