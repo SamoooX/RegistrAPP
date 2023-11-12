@@ -54,21 +54,24 @@ export class RegisterPage implements OnInit {
     if (this.form.valid) {
       const loading = await this.utilsSvc.loading();
       await loading.present();
-
+  
       this.firebaseSvc.signUp(this.form.value as User).then(async (res) => {
-
+  
           await this.firebaseSvc.updateUser(this.form.value.name);
-
+  
           let uid = res.user.uid;
           this.form.controls['uid'].setValue(uid);
-
+  
           this.setUserInfo(uid);
-
-          this.router.navigate(['/login']);
+  
+          // Agrega un breve retraso antes de redirigir al usuario
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+          }, 1000);
         })
         .catch((error) => {
           console.log(error);
-
+  
           this.presentAlert();
         })
         .finally(() => {
@@ -76,6 +79,7 @@ export class RegisterPage implements OnInit {
         });
     }
   }
+  
 
   async presentAlert() {
     const alert = await this.alertController.create({

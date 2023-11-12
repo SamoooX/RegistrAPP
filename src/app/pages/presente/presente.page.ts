@@ -34,8 +34,11 @@ export class PresentePage implements OnInit {
 
   }
 
-  scan() {
-    this.barcodescanner.scan().then(barcodedata => {
+  async scan() {
+    const loading = await this.utilsSvc.loading();
+    await loading.present();
+
+    this.barcodescanner.scan().then(async barcodedata => {
       console.log("Scaneando...", barcodedata);
       this.texto = (JSON.stringify(barcodedata));
 
@@ -57,9 +60,15 @@ export class PresentePage implements OnInit {
       // Guardar en localStorage
       this.utilsSvc.saveInLocalStorage('asistencia', asistenciaData);
 
-    }).catch(err => {
+      
+
+    }).catch(async err => {
       console.log("ERROR AL ESCANEAR!!!!");
-    })
+      (await loading).dismiss();
+    }).finally(() => {
+      loading.dismiss();
+    });
+
   }
 
 
@@ -86,8 +95,8 @@ export class PresentePage implements OnInit {
       console.log('Coordenadas:', position.coords);
 
       // Coordenadas del lugar de referencia(DUOC)
-      const lugarLat = -36.7959298;
-      const lugarLon = -73.0603091;
+      const lugarLat = -36.79538077676426;
+      const lugarLon = -73.06240811939503;
 
       const distancia = this.calcularDistancia(
         position.coords.latitude,
