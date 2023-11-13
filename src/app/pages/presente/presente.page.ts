@@ -1,13 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { Geolocation, Position } from '@capacitor/geolocation';
-import { Capacitor } from '@capacitor/core';
-import { AndroidSettings, IOSSettings, NativeSettings } from 'capacitor-native-settings';
-import { LocationAccuracy } from '@awesome-cordova-plugins/location-accuracy/ngx';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 import { User } from 'firebase/auth';
 import { UtilsService } from 'src/app/services/utils.service';
+import { DataService } from './../../app.component';
 
 @Component({
   selector: 'app-presente',
@@ -18,25 +15,26 @@ export class PresentePage implements OnInit {
   //qr
   texto: any;
   //coordenadas
-  ValidacionCoordenadas: boolean = false;
+  ValidacionCoordenadas: boolean = true;
   //servicios
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
 
   constructor(
     private alertController: AlertController,
-    private locationAccuracy: LocationAccuracy,
+    private dataService: DataService,
     private barcodescanner: BarcodeScanner) { }
 
   ngOnInit() {
 
+    this.ValidacionCoordenadas = this.dataService.getActivaBoton();
 
 
   }
 
   async scan() {
     const loading = await this.utilsSvc.loading();
-    await loading.present();
+    
 
     this.barcodescanner.scan().then(async barcodedata => {
       console.log("Scaneando...", barcodedata);
@@ -54,12 +52,15 @@ export class PresentePage implements OnInit {
         asistencia: true
       };
 
+      
+      await loading.present();
       // Guardar en Firebase
       this.firebaseSvc.addDocument('asistencia', asistenciaData);
 
       // Guardar en localStorage
       this.utilsSvc.saveInLocalStorage('asistencia', asistenciaData);
 
+      this.utilsSvc.routerLink('/asistencia');
       
 
     }).catch(async err => {

@@ -37,7 +37,7 @@ export class TabPage implements OnInit {
         lugarLon
       );
 
-      if (distancia < 0.25) {
+      if (distancia < 5500) {
         console.log('Las coordenadas están cerca del lugar.');
         this.dataService.setActivaBoton(true);
       } else {

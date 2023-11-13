@@ -15,7 +15,7 @@ export class UtilsService {
   // Función loading
 
   loading(){
-    return this.loadingCtrl.create({ spinner: 'crescent'})
+    return this.loadingCtrl.create({ spinner: 'crescent', duration : 5000})
   }
 
 

@@ -60,7 +60,7 @@ export class DataService {
     return this.activaBoton;
   }
 
-  setActivaBoton(value: any) {
+  setActivaBoton(value: boolean) {
     this.activaBoton = value;
   }
 
