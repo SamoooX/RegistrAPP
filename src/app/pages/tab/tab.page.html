@@ -9,7 +9,7 @@
         <ion-icon name="qr-code-outline"></ion-icon>
         QR
       </ion-tab-button>
-      <ion-tab-button tab="presente" *ngIf="!permission">
+      <ion-tab-button tab="presente" *ngIf="!permission" (click)="getCurrentLocation()">
         <ion-icon name="camera-outline"></ion-icon>
         Presente
       </ion-tab-button>

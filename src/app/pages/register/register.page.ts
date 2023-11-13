@@ -107,7 +107,7 @@ export class RegisterPage implements OnInit {
 
 
 
-  async setUserInfo(uid:string) {
+  async setUserInfo(uid: string) {
     if (this.form.valid) {
       const loading = await this.utilsSvc.loading();
       await loading.present();
@@ -115,8 +115,14 @@ export class RegisterPage implements OnInit {
       let path = `users/${uid}`;
 
       this.firebaseSvc.setDocument(path, this.form.value).then(async res => {
-          
-        this.utilsSvc.saveInLocalStorage('user', this.form.value)
+        
+        this.utilsSvc.routerLink('/login');
+        
+
+        this.utilsSvc.saveInLocalStorage('user', this.form.value);
+
+
+        console.log(res);
         })
         .catch((error) => {
           console.log(error);
