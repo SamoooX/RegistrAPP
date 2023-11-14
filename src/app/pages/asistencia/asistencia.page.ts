@@ -25,6 +25,14 @@ export class AsistenciaPage implements OnInit {
   constructor(private http: HttpClient) { }
   
   async ngOnInit() {
+    this.loadData();
+  }
+
+  async ionViewWillEnter() {
+    this.loadData();
+  }
+  
+  async loadData() {
     this.ramos = await this.firebaseSvc.getSubjects();
   
     // Crea un mapa de asistencias por ID de asignatura

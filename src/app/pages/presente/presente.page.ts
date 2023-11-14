@@ -34,42 +34,39 @@ export class PresentePage implements OnInit {
 
   async scan() {
     const loading = await this.utilsSvc.loading();
-    
-
+  
     this.barcodescanner.scan().then(async barcodedata => {
       console.log("Scaneando...", barcodedata);
       this.texto = (JSON.stringify(barcodedata));
-
+  
       let user = this.user();
       let idAlumno = user.uid;
-
+  
       const idAsignatura = barcodedata.text;
-
+  
       const asistenciaData = {
         idAlumno,
         idAsignatura,
         fecha: new Date(),
         asistencia: true
       };
-
-      
+  
       await loading.present();
       // Guardar en Firebase
-      this.firebaseSvc.addDocument('asistencia', asistenciaData);
-
-      // Guardar en localStorage
-      this.utilsSvc.saveInLocalStorage('asistencia', asistenciaData);
-
-      this.utilsSvc.routerLink('/asistencia');
-      
-
+      this.firebaseSvc.addDocument('asistencia', asistenciaData).then(() => {
+        // Los datos de asistencia se guardaron con éxito en Firebase
+        // Cambiar el estado 'enviado' a true
+        this.utilsSvc.saveInLocalStorage('asistencia', { data: asistenciaData, enviado: true });
+      });
+  
+      this.utilsSvc.routerLink('tab/asistencia');
+  
     }).catch(async err => {
       console.log("ERROR AL ESCANEAR!!!!");
       (await loading).dismiss();
     }).finally(() => {
       loading.dismiss();
     });
-
   }
 
 

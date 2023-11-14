@@ -17,12 +17,11 @@ export class AppComponent {
 
 
   ngOnInit() {
-      
     if(navigator.onLine) {
       // Si hay conexión a internet
-      let asistenciaData = this.utilsSvc.getFromLocalStorage('asistencia');
-      if(asistenciaData) {
-        this.firebaseSvc.addDocument('asistencia', asistenciaData).then(() => {
+      let asistenciaDataObj = this.utilsSvc.getFromLocalStorage('asistencia');
+      if(asistenciaDataObj && !asistenciaDataObj.enviado) {
+        this.firebaseSvc.addDocument('asistencia', asistenciaDataObj.data).then(() => {
           // Los datos de asistencia se guardaron con éxito en Firebase
           // eliminar los datos del localstorage
           this.utilsSvc.saveInLocalStorage('asistencia', null);
