@@ -5,7 +5,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, up
 import {AngularFirestore } from '@angular/fire/compat/firestore';
 import { getFirestore, setDoc, doc, getDoc, addDoc } from '@angular/fire/firestore'
 import { UtilsService } from './utils.service';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -81,6 +81,17 @@ export class FirebaseService {
   //Obtener asistencias
   async getAttendances() {
     const querySnapshot = await getDocs(collection(getFirestore(), 'asistencia'));
+    return querySnapshot.docs.map(doc => doc.data());
+  }
+
+  async getAsistencia(userId: string, subjectId: string) {
+    const querySnapshot = await getDocs(
+      query(
+        collection(getFirestore(), 'asistencia'),
+        where('idAlumno', '==', userId),
+        where('idAsignatura', '==', subjectId)
+      )
+    );
     return querySnapshot.docs.map(doc => doc.data());
   }
 }
