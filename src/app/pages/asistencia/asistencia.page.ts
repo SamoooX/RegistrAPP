@@ -68,17 +68,11 @@ export class AsistenciaPage implements OnInit {
   
     return this.asistencia[nombreAsignatura];
   }
-<<<<<<< HEAD
-  
-=======
 
   user(): User {
     return this.utilsSvc.getFromLocalStorage('user');
   }
 
-<<<<<<< HEAD
+
 }
-=======
->>>>>>> e49c578369d74fad05f787acc0eed81b0f4890db
-}
->>>>>>> 471e95bba005e1215989e08e8edaf018dafde2fe
+
