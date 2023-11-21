@@ -1,0 +1,327 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.ionic.starter"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="22"
+8-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml
+10
+11    <!-- Permissions -->
+12
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:40:5-67
+13-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:40:22-64
+14    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+14-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:41:5-81
+14-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:41:22-78
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:42:5-79
+15-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:42:22-76
+16
+17    <uses-feature android:name="android.hardware.location.gps" />
+17-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:43:5-66
+17-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:43:19-63
+18
+19    <!-- To get access to the camera. -->
+20    <uses-permission android:name="android.permission.CAMERA" />
+20-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:46:5-65
+20-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:46:22-62
+21    <!-- To get access to the flashlight. -->
+22    <uses-permission android:name="android.permission.FLASHLIGHT" />
+22-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:48:5-68
+22-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:48:22-66
+23    <uses-permission android:name="android.permission.VIBRATE" />
+23-->[:capacitor-haptics] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-66
+23-->[:capacitor-haptics] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-63
+24
+25    <uses-feature
+25-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-13:35
+26        android:name="android.hardware.camera"
+26-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:9-47
+27        android:required="true" />
+27-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:9-32
+28
+29    <permission
+29-->[androidx.core:core:1.10.0] C:\Users\matil\.gradle\caches\transforms-3\4084e7bcb4a1738e1ff26326a1997c6e\transformed\core-1.10.0\AndroidManifest.xml:22:5-24:47
+30        android:name="io.ionic.starter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+30-->[androidx.core:core:1.10.0] C:\Users\matil\.gradle\caches\transforms-3\4084e7bcb4a1738e1ff26326a1997c6e\transformed\core-1.10.0\AndroidManifest.xml:23:9-81
+31        android:protectionLevel="signature" />
+31-->[androidx.core:core:1.10.0] C:\Users\matil\.gradle\caches\transforms-3\4084e7bcb4a1738e1ff26326a1997c6e\transformed\core-1.10.0\AndroidManifest.xml:24:9-44
+32
+33    <uses-permission android:name="io.ionic.starter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+33-->[androidx.core:core:1.10.0] C:\Users\matil\.gradle\caches\transforms-3\4084e7bcb4a1738e1ff26326a1997c6e\transformed\core-1.10.0\AndroidManifest.xml:26:5-97
+33-->[androidx.core:core:1.10.0] C:\Users\matil\.gradle\caches\transforms-3\4084e7bcb4a1738e1ff26326a1997c6e\transformed\core-1.10.0\AndroidManifest.xml:26:22-94
+34    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+35    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+35-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\matil\.gradle\caches\transforms-3\884edc06b4466ae08276f8885cbb447f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:25:5-79
+35-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\matil\.gradle\caches\transforms-3\884edc06b4466ae08276f8885cbb447f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:25:22-76
+36
+37    <application
+37-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:4:5-36:19
+38        android:allowBackup="true"
+38-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:5:9-35
+39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+39-->[androidx.core:core:1.10.0] C:\Users\matil\.gradle\caches\transforms-3\4084e7bcb4a1738e1ff26326a1997c6e\transformed\core-1.10.0\AndroidManifest.xml:28:18-86
+40        android:debuggable="true"
+41        android:icon="@mipmap/ic_launcher"
+41-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:6:9-43
+42        android:label="@string/app_name"
+42-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:7:9-41
+43        android:roundIcon="@mipmap/ic_launcher_round"
+43-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:8:9-54
+44        android:supportsRtl="true"
+44-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:9:9-35
+45        android:testOnly="true"
+46        android:theme="@style/AppTheme" >
+46-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:10:9-40
+47        <activity
+47-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:12:9-25:20
+48            android:name="io.ionic.starter.MainActivity"
+48-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:14:13-41
+49            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+49-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:13:13-129
+50            android:exported="true"
+50-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:18:13-36
+51            android:label="@string/title_activity_main"
+51-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:15:13-56
+52            android:launchMode="singleTask"
+52-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:17:13-44
+53            android:theme="@style/AppTheme.NoActionBarLaunch" >
+53-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:16:13-62
+54            <intent-filter>
+54-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:20:13-23:29
+55                <action android:name="android.intent.action.MAIN" />
+55-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:21:17-69
+55-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:21:25-66
+56
+57                <category android:name="android.intent.category.LAUNCHER" />
+57-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:22:17-77
+57-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:22:27-74
+58            </intent-filter>
+59        </activity>
+60
+61        <provider
+62            android:name="androidx.core.content.FileProvider"
+62-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:28:13-62
+63            android:authorities="io.ionic.starter.fileprovider"
+63-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:29:13-64
+64            android:exported="false"
+64-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:30:13-37
+65            android:grantUriPermissions="true" >
+65-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:31:13-47
+66            <meta-data
+66-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:32:13-34:64
+67                android:name="android.support.FILE_PROVIDER_PATHS"
+67-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:33:17-67
+68                android:resource="@xml/file_paths" />
+68-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\app\src\main\AndroidManifest.xml:34:17-51
+69        </provider>
+70
+71        <activity
+71-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-22:63
+72            android:name="com.google.zxing.client.android.CaptureActivity"
+72-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-75
+73            android:clearTaskOnLaunch="true"
+73-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-45
+74            android:configChanges="orientation|keyboardHidden|screenSize"
+74-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-74
+75            android:exported="false"
+75-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-37
+76            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+76-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-71
+77            android:windowSoftInputMode="stateAlwaysHidden" />
+77-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-60
+78        <activity
+78-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:9-25:37
+79            android:name="com.google.zxing.client.android.encode.EncodeActivity"
+79-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-81
+80            android:label="Share" />
+80-->[:capacitor-cordova-android-plugins] C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:13-34
+81        <!--
+82        This activity is an invisible delegate activity to start scanner activity
+83        and receive result, so it's unnecessary to support screen orientation and
+84        we can avoid any side effect from activity recreation in any case.
+85        -->
+86        <activity
+86-->[com.google.android.gms:play-services-code-scanner:16.0.0] C:\Users\matil\.gradle\caches\transforms-3\35bc6bb46bb9e722ce133ad10a179ead\transformed\jetified-play-services-code-scanner-16.0.0\AndroidManifest.xml:15:9-20:20
+87            android:name="com.google.mlkit.vision.codescanner.internal.GmsBarcodeScanningDelegateActivity"
+87-->[com.google.android.gms:play-services-code-scanner:16.0.0] C:\Users\matil\.gradle\caches\transforms-3\35bc6bb46bb9e722ce133ad10a179ead\transformed\jetified-play-services-code-scanner-16.0.0\AndroidManifest.xml:16:13-107
+88            android:exported="false"
+88-->[com.google.android.gms:play-services-code-scanner:16.0.0] C:\Users\matil\.gradle\caches\transforms-3\35bc6bb46bb9e722ce133ad10a179ead\transformed\jetified-play-services-code-scanner-16.0.0\AndroidManifest.xml:17:13-37
+89            android:screenOrientation="portrait" >
+89-->[com.google.android.gms:play-services-code-scanner:16.0.0] C:\Users\matil\.gradle\caches\transforms-3\35bc6bb46bb9e722ce133ad10a179ead\transformed\jetified-play-services-code-scanner-16.0.0\AndroidManifest.xml:18:13-49
+90        </activity>
+91
+92        <service
+92-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.2.0] C:\Users\matil\.gradle\caches\transforms-3\f60068756bf52b434b1250a733b6bd38\transformed\jetified-play-services-mlkit-barcode-scanning-18.2.0\AndroidManifest.xml:9:9-15:19
+93            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+93-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.2.0] C:\Users\matil\.gradle\caches\transforms-3\f60068756bf52b434b1250a733b6bd38\transformed\jetified-play-services-mlkit-barcode-scanning-18.2.0\AndroidManifest.xml:10:13-91
+94            android:directBootAware="true"
+94-->[com.google.mlkit:common:18.7.0] C:\Users\matil\.gradle\caches\transforms-3\a6866f4f98c5937b0dcda383f0a5c0d8\transformed\jetified-common-18.7.0\AndroidManifest.xml:17:13-43
+95            android:exported="false" >
+95-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.2.0] C:\Users\matil\.gradle\caches\transforms-3\f60068756bf52b434b1250a733b6bd38\transformed\jetified-play-services-mlkit-barcode-scanning-18.2.0\AndroidManifest.xml:11:13-37
+96            <meta-data
+96-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.2.0] C:\Users\matil\.gradle\caches\transforms-3\f60068756bf52b434b1250a733b6bd38\transformed\jetified-play-services-mlkit-barcode-scanning-18.2.0\AndroidManifest.xml:12:13-14:85
+97                android:name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar"
+97-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.2.0] C:\Users\matil\.gradle\caches\transforms-3\f60068756bf52b434b1250a733b6bd38\transformed\jetified-play-services-mlkit-barcode-scanning-18.2.0\AndroidManifest.xml:13:17-120
+98                android:value="com.google.firebase.components.ComponentRegistrar" />
+98-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.2.0] C:\Users\matil\.gradle\caches\transforms-3\f60068756bf52b434b1250a733b6bd38\transformed\jetified-play-services-mlkit-barcode-scanning-18.2.0\AndroidManifest.xml:14:17-82
+99            <meta-data
+99-->[com.google.mlkit:vision-common:17.3.0] C:\Users\matil\.gradle\caches\transforms-3\ea8de4d823591b313f522b5e662d46ae\transformed\jetified-vision-common-17.3.0\AndroidManifest.xml:12:13-14:85
+100                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+100-->[com.google.mlkit:vision-common:17.3.0] C:\Users\matil\.gradle\caches\transforms-3\ea8de4d823591b313f522b5e662d46ae\transformed\jetified-vision-common-17.3.0\AndroidManifest.xml:13:17-124
+101                android:value="com.google.firebase.components.ComponentRegistrar" />
+101-->[com.google.mlkit:vision-common:17.3.0] C:\Users\matil\.gradle\caches\transforms-3\ea8de4d823591b313f522b5e662d46ae\transformed\jetified-vision-common-17.3.0\AndroidManifest.xml:14:17-82
+102            <meta-data
+102-->[com.google.mlkit:common:18.7.0] C:\Users\matil\.gradle\caches\transforms-3\a6866f4f98c5937b0dcda383f0a5c0d8\transformed\jetified-common-18.7.0\AndroidManifest.xml:20:13-22:85
+103                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+103-->[com.google.mlkit:common:18.7.0] C:\Users\matil\.gradle\caches\transforms-3\a6866f4f98c5937b0dcda383f0a5c0d8\transformed\jetified-common-18.7.0\AndroidManifest.xml:21:17-120
+104                android:value="com.google.firebase.components.ComponentRegistrar" />
+104-->[com.google.mlkit:common:18.7.0] C:\Users\matil\.gradle\caches\transforms-3\a6866f4f98c5937b0dcda383f0a5c0d8\transformed\jetified-common-18.7.0\AndroidManifest.xml:22:17-82
+105        </service>
+106
+107        <provider
+107-->[com.google.mlkit:common:18.7.0] C:\Users\matil\.gradle\caches\transforms-3\a6866f4f98c5937b0dcda383f0a5c0d8\transformed\jetified-common-18.7.0\AndroidManifest.xml:9:9-13:38
+108            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+108-->[com.google.mlkit:common:18.7.0] C:\Users\matil\.gradle\caches\transforms-3\a6866f4f98c5937b0dcda383f0a5c0d8\transformed\jetified-common-18.7.0\AndroidManifest.xml:10:13-78
+109            android:authorities="io.ionic.starter.mlkitinitprovider"
+109-->[com.google.mlkit:common:18.7.0] C:\Users\matil\.gradle\caches\transforms-3\a6866f4f98c5937b0dcda383f0a5c0d8\transformed\jetified-common-18.7.0\AndroidManifest.xml:11:13-69
+110            android:exported="false"
+110-->[com.google.mlkit:common:18.7.0] C:\Users\matil\.gradle\caches\transforms-3\a6866f4f98c5937b0dcda383f0a5c0d8\transformed\jetified-common-18.7.0\AndroidManifest.xml:12:13-37
+111            android:initOrder="99" />
+111-->[com.google.mlkit:common:18.7.0] C:\Users\matil\.gradle\caches\transforms-3\a6866f4f98c5937b0dcda383f0a5c0d8\transformed\jetified-common-18.7.0\AndroidManifest.xml:13:13-35
+112
+113        <activity
+113-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\matil\.gradle\caches\transforms-3\7ac5808d8c52c97cfe5076be4e831074\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+114            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+114-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\matil\.gradle\caches\transforms-3\7ac5808d8c52c97cfe5076be4e831074\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+115            android:exported="false"
+115-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\matil\.gradle\caches\transforms-3\7ac5808d8c52c97cfe5076be4e831074\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+116            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+116-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\matil\.gradle\caches\transforms-3\7ac5808d8c52c97cfe5076be4e831074\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+117
+118        <meta-data
+118-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\matil\.gradle\caches\transforms-3\b526860e496972a43e328963181cf23a\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+119            android:name="com.google.android.gms.version"
+119-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\matil\.gradle\caches\transforms-3\b526860e496972a43e328963181cf23a\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+120            android:value="@integer/google_play_services_version" />
+120-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\matil\.gradle\caches\transforms-3\b526860e496972a43e328963181cf23a\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+121
+122        <provider
+122-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matil\.gradle\caches\transforms-3\619891cfbc50e3592a71b3f51e3a55eb\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+123            android:name="androidx.startup.InitializationProvider"
+123-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matil\.gradle\caches\transforms-3\619891cfbc50e3592a71b3f51e3a55eb\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+124            android:authorities="io.ionic.starter.androidx-startup"
+124-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matil\.gradle\caches\transforms-3\619891cfbc50e3592a71b3f51e3a55eb\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+125            android:exported="false" >
+125-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matil\.gradle\caches\transforms-3\619891cfbc50e3592a71b3f51e3a55eb\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+126            <meta-data
+126-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matil\.gradle\caches\transforms-3\619891cfbc50e3592a71b3f51e3a55eb\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+127                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+127-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matil\.gradle\caches\transforms-3\619891cfbc50e3592a71b3f51e3a55eb\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+128                android:value="androidx.startup" />
+128-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matil\.gradle\caches\transforms-3\619891cfbc50e3592a71b3f51e3a55eb\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+129            <meta-data
+129-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\matil\.gradle\caches\transforms-3\ef948e005e878ec97cfc6124dca2c9ea\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+130                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+130-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\matil\.gradle\caches\transforms-3\ef948e005e878ec97cfc6124dca2c9ea\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+131                android:value="androidx.startup" />
+131-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\matil\.gradle\caches\transforms-3\ef948e005e878ec97cfc6124dca2c9ea\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+132            <meta-data
+132-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+133                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+133-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+134                android:value="androidx.startup" />
+134-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+135        </provider>
+136
+137        <service
+137-->[androidx.camera:camera-camera2:1.1.0] C:\Users\matil\.gradle\caches\transforms-3\4c931724c4fa3e62e3f42d089d4b8814\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:26:9-35:19
+138            android:name="androidx.camera.core.impl.MetadataHolderService"
+138-->[androidx.camera:camera-camera2:1.1.0] C:\Users\matil\.gradle\caches\transforms-3\4c931724c4fa3e62e3f42d089d4b8814\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:27:13-75
+139            android:enabled="false"
+139-->[androidx.camera:camera-camera2:1.1.0] C:\Users\matil\.gradle\caches\transforms-3\4c931724c4fa3e62e3f42d089d4b8814\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:28:13-36
+140            android:exported="false" >
+140-->[androidx.camera:camera-camera2:1.1.0] C:\Users\matil\.gradle\caches\transforms-3\4c931724c4fa3e62e3f42d089d4b8814\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:29:13-37
+141            <meta-data
+141-->[androidx.camera:camera-camera2:1.1.0] C:\Users\matil\.gradle\caches\transforms-3\4c931724c4fa3e62e3f42d089d4b8814\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:32:13-34:89
+142                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+142-->[androidx.camera:camera-camera2:1.1.0] C:\Users\matil\.gradle\caches\transforms-3\4c931724c4fa3e62e3f42d089d4b8814\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:33:17-103
+143                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+143-->[androidx.camera:camera-camera2:1.1.0] C:\Users\matil\.gradle\caches\transforms-3\4c931724c4fa3e62e3f42d089d4b8814\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:34:17-86
+144        </service>
+145
+146        <receiver
+146-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+147            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+147-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+148            android:directBootAware="false"
+148-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+149            android:enabled="true"
+149-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+150            android:exported="true"
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+151            android:permission="android.permission.DUMP" >
+151-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+152            <intent-filter>
+152-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+153                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+153-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+153-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+154            </intent-filter>
+155            <intent-filter>
+155-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+156                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+156-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+156-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+157            </intent-filter>
+158            <intent-filter>
+158-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+159                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+159-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+159-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+160            </intent-filter>
+161            <intent-filter>
+161-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+162                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+162-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+162-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\matil\.gradle\caches\transforms-3\ac5000c8b89016a36931314b0914dadb\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+163            </intent-filter>
+164        </receiver>
+165
+166        <service
+166-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\matil\.gradle\caches\transforms-3\884edc06b4466ae08276f8885cbb447f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:29:9-35:19
+167            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+167-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\matil\.gradle\caches\transforms-3\884edc06b4466ae08276f8885cbb447f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:30:13-103
+168            android:exported="false" >
+168-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\matil\.gradle\caches\transforms-3\884edc06b4466ae08276f8885cbb447f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:31:13-37
+169            <meta-data
+169-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\matil\.gradle\caches\transforms-3\884edc06b4466ae08276f8885cbb447f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:32:13-34:39
+170                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+170-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\matil\.gradle\caches\transforms-3\884edc06b4466ae08276f8885cbb447f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:33:17-94
+171                android:value="cct" />
+171-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\matil\.gradle\caches\transforms-3\884edc06b4466ae08276f8885cbb447f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:34:17-36
+172        </service>
+173        <service
+173-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\matil\.gradle\caches\transforms-3\84e53fed0171f6677416547abd239acd\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:26:9-30:19
+174            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+174-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\matil\.gradle\caches\transforms-3\84e53fed0171f6677416547abd239acd\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:27:13-117
+175            android:exported="false"
+175-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\matil\.gradle\caches\transforms-3\84e53fed0171f6677416547abd239acd\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:28:13-37
+176            android:permission="android.permission.BIND_JOB_SERVICE" >
+176-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\matil\.gradle\caches\transforms-3\84e53fed0171f6677416547abd239acd\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:29:13-69
+177        </service>
+178
+179        <receiver
+179-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\matil\.gradle\caches\transforms-3\84e53fed0171f6677416547abd239acd\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:32:9-34:40
+180            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+180-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\matil\.gradle\caches\transforms-3\84e53fed0171f6677416547abd239acd\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:33:13-132
+181            android:exported="false" />
+181-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\matil\.gradle\caches\transforms-3\84e53fed0171f6677416547abd239acd\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:34:13-37
+182    </application>
+183
+184</manifest>

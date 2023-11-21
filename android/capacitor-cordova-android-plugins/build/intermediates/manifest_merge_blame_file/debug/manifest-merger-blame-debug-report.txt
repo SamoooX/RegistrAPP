@@ -1,0 +1,47 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+3    xmlns:android="http://schemas.android.com/apk/res/android"
+4    package="capacitor.cordova.android.plugins" >
+5
+6    <uses-sdk android:minSdkVersion="22" />
+6-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+7
+8    <uses-permission android:name="android.permission.CAMERA" />
+8-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:8:1-60
+8-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:8:18-58
+9    <uses-permission android:name="android.permission.FLASHLIGHT" />
+9-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:9:1-64
+9-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:9:18-62
+10
+11    <uses-feature
+11-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:10:1-79
+12        android:name="android.hardware.camera"
+12-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:10:15-53
+13        android:required="true" />
+13-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:10:54-77
+14
+15    <application>
+15-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:4:1-7:15
+16        <activity
+16-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:5:1-302
+17            android:name="com.google.zxing.client.android.CaptureActivity"
+17-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:5:11-73
+18            android:clearTaskOnLaunch="true"
+18-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:5:74-106
+19            android:configChanges="orientation|keyboardHidden|screenSize"
+19-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:5:107-168
+20            android:exported="false"
+20-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:5:276-300
+21            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+21-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:5:169-227
+22            android:windowSoftInputMode="stateAlwaysHidden" />
+22-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:5:228-275
+23        <activity
+23-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:6:1-103
+24            android:name="com.google.zxing.client.android.encode.EncodeActivity"
+24-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:6:11-79
+25            android:label="Share" />
+25-->C:\Users\matil\Documents\pruebadeapp\RegistrAPP\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:6:80-101
+26    </application>
+27
+28</manifest>
