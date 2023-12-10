@@ -83,4 +83,6 @@ export class FirebaseService {
     const querySnapshot = await getDocs(collection(getFirestore(), 'asistencia'));
     return querySnapshot.docs.map(doc => doc.data());
   }
+
+
 }

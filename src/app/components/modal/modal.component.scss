@@ -1,0 +1,29 @@
+
+h3{
+    color: white;
+}
+
+#boton{
+    position: fixed;
+    bottom: 0;
+    width: 90%;
+}
+
+
+.modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-header ion-title {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .modal-header ion-button {
+    position: absolute;
+    left: 0;
+    top: 7px;
+  }
