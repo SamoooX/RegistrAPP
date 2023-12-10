@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar class="modal-header">
+    <ion-button (click)="dismissModal()" fill="clear">
+      <ion-icon name="close-outline" style="color: black"></ion-icon>
+    </ion-button>
+
+    <ion-title>Agregar Asignatura</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="formAsignatura" (ngSubmit)="agregarAsignatura()">
+    <ion-item>
+        <ion-icon name="Nombre de Asignatura" class="ion-padding"></ion-icon>
+        <ion-input labelPlacement="floating" label="Nombre de asignatura" required type="text" aria-label="text" name="text"
+            formControlName="nombre_asignatura"></ion-input>
+    </ion-item>
+    <!-- Botón para agregar asignatura -->
+    <ion-button id="boton" class="animate__animated animate__flip" expand="full" color="warning" type="submit">Agregar</ion-button>
+</form>
+</ion-content>

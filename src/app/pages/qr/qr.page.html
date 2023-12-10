@@ -1,6 +1,10 @@
 <app-header titulo="Generacion de QR"></app-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-item class="titulo" color="mycolor" lines="none">
     <ion-label>TUS ASIGNATURAS</ion-label>
   </ion-item>
@@ -22,7 +26,7 @@
               </ion-label>
             </ion-item>
             <div class="ion-padding" slot="content" color="mycolor">
-              <ion-button expand="block" fill="clear" shape="round" (click)="onClickAndSetCod('gqr', ramo.id)">
+              <ion-button expand="block" color="warning"shape="round" (click)="onClickAndSetCod('gqr', ramo.id)">
                 Generar QR
               </ion-button>
             </div>
@@ -31,4 +35,11 @@
       </div>
     </ion-accordion>
   </ion-accordion-group>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="warning" (click)="ModalAgregarAsignatura()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
 </ion-content>
