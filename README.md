@@ -38,4 +38,4 @@ Si encuentras algún problema o tienes alguna sugerencia, no dudes en abrir un [
 
 ### Notas:
 
-Esta aplicación fue desarrollada como parte de [la asignatura Aplicacion Movil] y sigue en constante desarrollo. ¡Gracias por tu interés y apoyo!
+Esta aplicación fue desarrollada como parte de la asignatura Aplicaciones Móviles. ¡Gracias por tu interés y apoyo!
